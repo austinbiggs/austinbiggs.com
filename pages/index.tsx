@@ -18,7 +18,7 @@ const Home: React.FC = () => {
                   I'm Austin Biggs
                 </h1>
                 <p>
-                  A Senior Frontend Engineer in Denver, CO specializing in React, Apollo, Redux, and more!
+                  A Senior Software Engineer in Denver, CO. I specialize in frontend technologies like React, Apollo, and Redux.
                 </p>
                 <Button
                   className={styles.button}
