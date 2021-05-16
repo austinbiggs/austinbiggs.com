@@ -1,0 +1,9 @@
+query GetPages {
+  page {
+    created_at
+    id
+    updated_at
+    title
+    slug
+  }
+}
