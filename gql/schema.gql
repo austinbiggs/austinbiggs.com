@@ -154,7 +154,7 @@ type activity_logins_mutation_response {
 # on conflict condition type for table "activity_logins"
 input activity_logins_on_conflict {
   constraint: activity_logins_constraint!
-  update_columns: [activity_logins_update_column!]! = []
+  update_columns: [activity_logins_update_column!]!
   where: activity_logins_bool_exp
 }
 
@@ -294,20 +294,6 @@ input activity_logins_variance_order_by {
   user_id: order_by
 }
 
-input Auth0Input {
-  email: String!
-  emailVerified: String!
-  name: String!
-  phone: String!
-  phoneVerified: String!
-  picture: String!
-  username: String!
-}
-
-type Auth0Output {
-  accessToken: String!
-}
-
 # Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'.
 input Boolean_comparison_exp {
   _eq: Boolean
@@ -319,470 +305,6 @@ input Boolean_comparison_exp {
   _lte: Boolean
   _neq: Boolean
   _nin: [Boolean!]
-}
-
-# columns and relationships of "courses"
-type courses {
-  content: String!
-  created_at: timestamptz!
-  created_by_id: Int!
-  id: Int!
-  premium: Boolean!
-  price: numeric!
-  sku: String!
-  slug: String!
-  status: String!
-  summary: String!
-  title: String!
-  updated_at: timestamptz!
-  updated_by_id: Int!
-
-  # An object relationship
-  user: users!
-
-  # An object relationship
-  userByCreatedById: users!
-}
-
-# aggregated selection of "courses"
-type courses_aggregate {
-  aggregate: courses_aggregate_fields
-  nodes: [courses!]!
-}
-
-# aggregate fields of "courses"
-type courses_aggregate_fields {
-  avg: courses_avg_fields
-  count(columns: [courses_select_column!], distinct: Boolean): Int!
-  max: courses_max_fields
-  min: courses_min_fields
-  stddev: courses_stddev_fields
-  stddev_pop: courses_stddev_pop_fields
-  stddev_samp: courses_stddev_samp_fields
-  sum: courses_sum_fields
-  var_pop: courses_var_pop_fields
-  var_samp: courses_var_samp_fields
-  variance: courses_variance_fields
-}
-
-# order by aggregate values of table "courses"
-input courses_aggregate_order_by {
-  avg: courses_avg_order_by
-  count: order_by
-  max: courses_max_order_by
-  min: courses_min_order_by
-  stddev: courses_stddev_order_by
-  stddev_pop: courses_stddev_pop_order_by
-  stddev_samp: courses_stddev_samp_order_by
-  sum: courses_sum_order_by
-  var_pop: courses_var_pop_order_by
-  var_samp: courses_var_samp_order_by
-  variance: courses_variance_order_by
-}
-
-# input type for inserting array relation for remote table "courses"
-input courses_arr_rel_insert_input {
-  data: [courses_insert_input!]!
-
-  # on conflict condition
-  on_conflict: courses_on_conflict
-}
-
-# aggregate avg on columns
-type courses_avg_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by avg() on columns of table "courses"
-input courses_avg_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# Boolean expression to filter rows from the table "courses". All fields are combined with a logical 'AND'.
-input courses_bool_exp {
-  _and: [courses_bool_exp!]
-  _not: courses_bool_exp
-  _or: [courses_bool_exp!]
-  content: String_comparison_exp
-  created_at: timestamptz_comparison_exp
-  created_by_id: Int_comparison_exp
-  id: Int_comparison_exp
-  premium: Boolean_comparison_exp
-  price: numeric_comparison_exp
-  sku: String_comparison_exp
-  slug: String_comparison_exp
-  status: String_comparison_exp
-  summary: String_comparison_exp
-  title: String_comparison_exp
-  updated_at: timestamptz_comparison_exp
-  updated_by_id: Int_comparison_exp
-  user: users_bool_exp
-  userByCreatedById: users_bool_exp
-}
-
-# unique or primary key constraints on table "courses"
-enum courses_constraint {
-  # unique or primary key constraint
-  courses_pkey
-
-  # unique or primary key constraint
-  courses_sku_key
-
-  # unique or primary key constraint
-  courses_slug_key
-
-  # unique or primary key constraint
-  courses_title_key
-}
-
-# input type for incrementing numeric columns in table "courses"
-input courses_inc_input {
-  created_by_id: Int
-  id: Int
-  price: numeric
-  updated_by_id: Int
-}
-
-# input type for inserting data into table "courses"
-input courses_insert_input {
-  content: String
-  created_at: timestamptz
-  created_by_id: Int
-  id: Int
-  premium: Boolean
-  price: numeric
-  sku: String
-  slug: String
-  status: String
-  summary: String
-  title: String
-  updated_at: timestamptz
-  updated_by_id: Int
-  user: users_obj_rel_insert_input
-  userByCreatedById: users_obj_rel_insert_input
-}
-
-# aggregate max on columns
-type courses_max_fields {
-  content: String
-  created_at: timestamptz
-  created_by_id: Int
-  id: Int
-  price: numeric
-  sku: String
-  slug: String
-  status: String
-  summary: String
-  title: String
-  updated_at: timestamptz
-  updated_by_id: Int
-}
-
-# order by max() on columns of table "courses"
-input courses_max_order_by {
-  content: order_by
-  created_at: order_by
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  sku: order_by
-  slug: order_by
-  status: order_by
-  summary: order_by
-  title: order_by
-  updated_at: order_by
-  updated_by_id: order_by
-}
-
-# aggregate min on columns
-type courses_min_fields {
-  content: String
-  created_at: timestamptz
-  created_by_id: Int
-  id: Int
-  price: numeric
-  sku: String
-  slug: String
-  status: String
-  summary: String
-  title: String
-  updated_at: timestamptz
-  updated_by_id: Int
-}
-
-# order by min() on columns of table "courses"
-input courses_min_order_by {
-  content: order_by
-  created_at: order_by
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  sku: order_by
-  slug: order_by
-  status: order_by
-  summary: order_by
-  title: order_by
-  updated_at: order_by
-  updated_by_id: order_by
-}
-
-# response of any mutation on the table "courses"
-type courses_mutation_response {
-  # number of rows affected by the mutation
-  affected_rows: Int!
-
-  # data from the rows affected by the mutation
-  returning: [courses!]!
-}
-
-# on conflict condition type for table "courses"
-input courses_on_conflict {
-  constraint: courses_constraint!
-  update_columns: [courses_update_column!]! = []
-  where: courses_bool_exp
-}
-
-# Ordering options when selecting data from "courses".
-input courses_order_by {
-  content: order_by
-  created_at: order_by
-  created_by_id: order_by
-  id: order_by
-  premium: order_by
-  price: order_by
-  sku: order_by
-  slug: order_by
-  status: order_by
-  summary: order_by
-  title: order_by
-  updated_at: order_by
-  updated_by_id: order_by
-  user: users_order_by
-  userByCreatedById: users_order_by
-}
-
-# primary key columns input for table: courses
-input courses_pk_columns_input {
-  id: Int!
-}
-
-# select columns of table "courses"
-enum courses_select_column {
-  # column name
-  content
-
-  # column name
-  created_at
-
-  # column name
-  created_by_id
-
-  # column name
-  id
-
-  # column name
-  premium
-
-  # column name
-  price
-
-  # column name
-  sku
-
-  # column name
-  slug
-
-  # column name
-  status
-
-  # column name
-  summary
-
-  # column name
-  title
-
-  # column name
-  updated_at
-
-  # column name
-  updated_by_id
-}
-
-# input type for updating data in table "courses"
-input courses_set_input {
-  content: String
-  created_at: timestamptz
-  created_by_id: Int
-  id: Int
-  premium: Boolean
-  price: numeric
-  sku: String
-  slug: String
-  status: String
-  summary: String
-  title: String
-  updated_at: timestamptz
-  updated_by_id: Int
-}
-
-# aggregate stddev on columns
-type courses_stddev_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by stddev() on columns of table "courses"
-input courses_stddev_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# aggregate stddev_pop on columns
-type courses_stddev_pop_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by stddev_pop() on columns of table "courses"
-input courses_stddev_pop_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# aggregate stddev_samp on columns
-type courses_stddev_samp_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by stddev_samp() on columns of table "courses"
-input courses_stddev_samp_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# aggregate sum on columns
-type courses_sum_fields {
-  created_by_id: Int
-  id: Int
-  price: numeric
-  updated_by_id: Int
-}
-
-# order by sum() on columns of table "courses"
-input courses_sum_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# update columns of table "courses"
-enum courses_update_column {
-  # column name
-  content
-
-  # column name
-  created_at
-
-  # column name
-  created_by_id
-
-  # column name
-  id
-
-  # column name
-  premium
-
-  # column name
-  price
-
-  # column name
-  sku
-
-  # column name
-  slug
-
-  # column name
-  status
-
-  # column name
-  summary
-
-  # column name
-  title
-
-  # column name
-  updated_at
-
-  # column name
-  updated_by_id
-}
-
-# aggregate var_pop on columns
-type courses_var_pop_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by var_pop() on columns of table "courses"
-input courses_var_pop_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# aggregate var_samp on columns
-type courses_var_samp_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by var_samp() on columns of table "courses"
-input courses_var_samp_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
-}
-
-# aggregate variance on columns
-type courses_variance_fields {
-  created_by_id: Float
-  id: Float
-  price: Float
-  updated_by_id: Float
-}
-
-# order by variance() on columns of table "courses"
-input courses_variance_order_by {
-  created_by_id: order_by
-  id: order_by
-  price: order_by
-  updated_by_id: order_by
 }
 
 # Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'.
@@ -815,8 +337,6 @@ input json_comparison_exp {
 
 # mutation root
 type mutation_root {
-  createAuth0User(arg1: Auth0Input!): Auth0Output
-
   # delete data from the table: "activity_logins"
   delete_activity_logins(
     # filter the rows which have to be deleted
@@ -825,15 +345,6 @@ type mutation_root {
 
   # delete single row from the table: "activity_logins"
   delete_activity_logins_by_pk(id: Int!): activity_logins
-
-  # delete data from the table: "courses"
-  delete_courses(
-    # filter the rows which have to be deleted
-    where: courses_bool_exp!
-  ): courses_mutation_response
-
-  # delete single row from the table: "courses"
-  delete_courses_by_pk(id: Int!): courses
 
   # delete data from the table: "pages"
   delete_pages(
@@ -915,24 +426,6 @@ type mutation_root {
     # on conflict condition
     on_conflict: activity_logins_on_conflict
   ): activity_logins
-
-  # insert data into the table: "courses"
-  insert_courses(
-    # the rows to be inserted
-    objects: [courses_insert_input!]!
-
-    # on conflict condition
-    on_conflict: courses_on_conflict
-  ): courses_mutation_response
-
-  # insert a single row into the table: "courses"
-  insert_courses_one(
-    # the row to be inserted
-    object: courses_insert_input!
-
-    # on conflict condition
-    on_conflict: courses_on_conflict
-  ): courses
 
   # insert data into the table: "pages"
   insert_pages(
@@ -1081,28 +574,6 @@ type mutation_root {
     _set: activity_logins_set_input
     pk_columns: activity_logins_pk_columns_input!
   ): activity_logins
-
-  # update data of the table: "courses"
-  update_courses(
-    # increments the numeric columns with given value of the filtered values
-    _inc: courses_inc_input
-
-    # sets the columns of the filtered rows to the given values
-    _set: courses_set_input
-
-    # filter the rows which have to be updated
-    where: courses_bool_exp!
-  ): courses_mutation_response
-
-  # update single row of the table: "courses"
-  update_courses_by_pk(
-    # increments the numeric columns with given value of the filtered values
-    _inc: courses_inc_input
-
-    # sets the columns of the filtered rows to the given values
-    _set: courses_set_input
-    pk_columns: courses_pk_columns_input!
-  ): courses
 
   # update data of the table: "pages"
   update_pages(
@@ -1259,21 +730,6 @@ type mutation_root {
   ): users
 }
 
-scalar numeric
-
-# Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'.
-input numeric_comparison_exp {
-  _eq: numeric
-  _gt: numeric
-  _gte: numeric
-  _in: [numeric!]
-  _is_null: Boolean
-  _lt: numeric
-  _lte: numeric
-  _neq: numeric
-  _nin: [numeric!]
-}
-
 # column ordering options
 enum order_by {
   # in ascending order, nulls last
@@ -1298,14 +754,14 @@ enum order_by {
 # columns and relationships of "pages"
 type pages {
   body: String!
-  createdAt: timestamptz!
-  createdBy: Int!
+  created_at: timestamptz!
+  created_by_id: Int!
   id: Int!
   slug: String!
   status: String!
   title: String!
-  updatedAt: timestamptz!
-  updatedBy: Int!
+  updated_at: timestamptz!
+  updated_by_id: Int!
 
   # An object relationship
   user: users!
@@ -1360,16 +816,16 @@ input pages_arr_rel_insert_input {
 
 # aggregate avg on columns
 type pages_avg_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by avg() on columns of table "pages"
 input pages_avg_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # Boolean expression to filter rows from the table "pages". All fields are combined with a logical 'AND'.
@@ -1378,14 +834,14 @@ input pages_bool_exp {
   _not: pages_bool_exp
   _or: [pages_bool_exp!]
   body: String_comparison_exp
-  createdAt: timestamptz_comparison_exp
-  createdBy: Int_comparison_exp
+  created_at: timestamptz_comparison_exp
+  created_by_id: Int_comparison_exp
   id: Int_comparison_exp
   slug: String_comparison_exp
   status: String_comparison_exp
   title: String_comparison_exp
-  updatedAt: timestamptz_comparison_exp
-  updatedBy: Int_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  updated_by_id: Int_comparison_exp
   user: users_bool_exp
   userByUpdatedById: users_bool_exp
 }
@@ -1404,22 +860,22 @@ enum pages_constraint {
 
 # input type for incrementing numeric columns in table "pages"
 input pages_inc_input {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # input type for inserting data into table "pages"
 input pages_insert_input {
   body: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   user: users_obj_rel_insert_input
   userByUpdatedById: users_obj_rel_insert_input
 }
@@ -1427,53 +883,53 @@ input pages_insert_input {
 # aggregate max on columns
 type pages_max_fields {
   body: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by max() on columns of table "pages"
 input pages_max_order_by {
   body: order_by
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   status: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # aggregate min on columns
 type pages_min_fields {
   body: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by min() on columns of table "pages"
 input pages_min_order_by {
   body: order_by
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   status: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # response of any mutation on the table "pages"
@@ -1488,21 +944,21 @@ type pages_mutation_response {
 # on conflict condition type for table "pages"
 input pages_on_conflict {
   constraint: pages_constraint!
-  update_columns: [pages_update_column!]! = []
+  update_columns: [pages_update_column!]!
   where: pages_bool_exp
 }
 
 # Ordering options when selecting data from "pages".
 input pages_order_by {
   body: order_by
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   status: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
   user: users_order_by
   userByUpdatedById: users_order_by
 }
@@ -1518,10 +974,10 @@ enum pages_select_column {
   body
 
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
@@ -1536,79 +992,79 @@ enum pages_select_column {
   title
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # input type for updating data in table "pages"
 input pages_set_input {
   body: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # aggregate stddev on columns
 type pages_stddev_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev() on columns of table "pages"
 input pages_stddev_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_pop on columns
 type pages_stddev_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_pop() on columns of table "pages"
 input pages_stddev_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_samp on columns
 type pages_stddev_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_samp() on columns of table "pages"
 input pages_stddev_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate sum on columns
 type pages_sum_fields {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # order by sum() on columns of table "pages"
 input pages_sum_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # update columns of table "pages"
@@ -1617,10 +1073,10 @@ enum pages_update_column {
   body
 
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
@@ -1635,77 +1091,77 @@ enum pages_update_column {
   title
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # aggregate var_pop on columns
 type pages_var_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_pop() on columns of table "pages"
 input pages_var_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate var_samp on columns
 type pages_var_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_samp() on columns of table "pages"
 input pages_var_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate variance on columns
 type pages_variance_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by variance() on columns of table "pages"
 input pages_variance_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # columns and relationships of "posts"
 type posts {
   content: String!
-  createdAt: timestamptz!
-  createdBy: Int!
+  created_at: timestamptz!
+  created_by_id: Int!
   id: Int!
   slug: String!
   status: String!
   summary: String!
-  tagIds(
+  tag_ids(
     # JSON select path
     path: String
   ): json!
   title: String!
-  topicIds(
+  topic_ids(
     # JSON select path
     path: String
   ): json!
-  updatedAt: timestamptz!
-  updatedBy: Int!
+  updated_at: timestamptz!
+  updated_by_id: Int!
 
   # An object relationship
-  userByCreatedById: users!
+  user: users!
 
   # An object relationship
   userByUpdatedById: users!
@@ -1757,16 +1213,16 @@ input posts_arr_rel_insert_input {
 
 # aggregate avg on columns
 type posts_avg_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by avg() on columns of table "posts"
 input posts_avg_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # Boolean expression to filter rows from the table "posts". All fields are combined with a logical 'AND'.
@@ -1775,18 +1231,18 @@ input posts_bool_exp {
   _not: posts_bool_exp
   _or: [posts_bool_exp!]
   content: String_comparison_exp
-  createdAt: timestamptz_comparison_exp
-  createdBy: Int_comparison_exp
+  created_at: timestamptz_comparison_exp
+  created_by_id: Int_comparison_exp
   id: Int_comparison_exp
   slug: String_comparison_exp
   status: String_comparison_exp
   summary: String_comparison_exp
-  tagIds: json_comparison_exp
+  tag_ids: json_comparison_exp
   title: String_comparison_exp
-  topicIds: json_comparison_exp
-  updatedAt: timestamptz_comparison_exp
-  updatedBy: Int_comparison_exp
-  userByCreatedById: users_bool_exp
+  topic_ids: json_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  updated_by_id: Int_comparison_exp
+  user: users_bool_exp
   userByUpdatedById: users_bool_exp
 }
 
@@ -1804,83 +1260,83 @@ enum posts_constraint {
 
 # input type for incrementing numeric columns in table "posts"
 input posts_inc_input {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # input type for inserting data into table "posts"
 input posts_insert_input {
   content: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   summary: String
-  tagIds: json
+  tag_ids: json
   title: String
-  topicIds: json
-  updatedAt: timestamptz
-  updatedBy: Int
-  userByCreatedById: users_obj_rel_insert_input
+  topic_ids: json
+  updated_at: timestamptz
+  updated_by_id: Int
+  user: users_obj_rel_insert_input
   userByUpdatedById: users_obj_rel_insert_input
 }
 
 # aggregate max on columns
 type posts_max_fields {
   content: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   summary: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by max() on columns of table "posts"
 input posts_max_order_by {
   content: order_by
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   status: order_by
   summary: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # aggregate min on columns
 type posts_min_fields {
   content: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   summary: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by min() on columns of table "posts"
 input posts_min_order_by {
   content: order_by
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   status: order_by
   summary: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # response of any mutation on the table "posts"
@@ -1895,25 +1351,25 @@ type posts_mutation_response {
 # on conflict condition type for table "posts"
 input posts_on_conflict {
   constraint: posts_constraint!
-  update_columns: [posts_update_column!]! = []
+  update_columns: [posts_update_column!]!
   where: posts_bool_exp
 }
 
 # Ordering options when selecting data from "posts".
 input posts_order_by {
   content: order_by
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   status: order_by
   summary: order_by
-  tagIds: order_by
+  tag_ids: order_by
   title: order_by
-  topicIds: order_by
-  updatedAt: order_by
-  updatedBy: order_by
-  userByCreatedById: users_order_by
+  topic_ids: order_by
+  updated_at: order_by
+  updated_by_id: order_by
+  user: users_order_by
   userByUpdatedById: users_order_by
 }
 
@@ -1928,10 +1384,10 @@ enum posts_select_column {
   content
 
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
@@ -1946,91 +1402,91 @@ enum posts_select_column {
   summary
 
   # column name
-  tagIds
+  tag_ids
 
   # column name
   title
 
   # column name
-  topicIds
+  topic_ids
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # input type for updating data in table "posts"
 input posts_set_input {
   content: String
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   status: String
   summary: String
-  tagIds: json
+  tag_ids: json
   title: String
-  topicIds: json
-  updatedAt: timestamptz
-  updatedBy: Int
+  topic_ids: json
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # aggregate stddev on columns
 type posts_stddev_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev() on columns of table "posts"
 input posts_stddev_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_pop on columns
 type posts_stddev_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_pop() on columns of table "posts"
 input posts_stddev_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_samp on columns
 type posts_stddev_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_samp() on columns of table "posts"
 input posts_stddev_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate sum on columns
 type posts_sum_fields {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # order by sum() on columns of table "posts"
 input posts_sum_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # update columns of table "posts"
@@ -2039,10 +1495,10 @@ enum posts_update_column {
   content
 
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
@@ -2057,81 +1513,81 @@ enum posts_update_column {
   summary
 
   # column name
-  tagIds
+  tag_ids
 
   # column name
   title
 
   # column name
-  topicIds
+  topic_ids
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # aggregate var_pop on columns
 type posts_var_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_pop() on columns of table "posts"
 input posts_var_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate var_samp on columns
 type posts_var_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_samp() on columns of table "posts"
 input posts_var_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate variance on columns
 type posts_variance_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by variance() on columns of table "posts"
 input posts_variance_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # columns and relationships of "profiles"
 type profiles {
-  avatarUrl: String
+  avatar_url: String
   biography: String
   id: Int!
+  is_public: Boolean!
   links(
     # JSON select path
     path: String
   ): json
   location: String
-  phone: String
-  phoneVerified: Boolean
-  public: Boolean!
+  phone_number: String
+  phone_verified: Boolean
   slug: String!
 
   # An object relationship
   user: users!
-  userId: Int!
+  user_Id: Int!
 }
 
 # aggregated selection of "profiles"
@@ -2158,7 +1614,7 @@ type profiles_aggregate_fields {
 # aggregate avg on columns
 type profiles_avg_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 # Boolean expression to filter rows from the table "profiles". All fields are combined with a logical 'AND'.
@@ -2166,17 +1622,17 @@ input profiles_bool_exp {
   _and: [profiles_bool_exp!]
   _not: profiles_bool_exp
   _or: [profiles_bool_exp!]
-  avatarUrl: String_comparison_exp
+  avatar_url: String_comparison_exp
   biography: String_comparison_exp
   id: Int_comparison_exp
+  is_public: Boolean_comparison_exp
   links: json_comparison_exp
   location: String_comparison_exp
-  phone: String_comparison_exp
-  phoneVerified: Boolean_comparison_exp
-  public: Boolean_comparison_exp
+  phone_number: String_comparison_exp
+  phone_verified: Boolean_comparison_exp
   slug: String_comparison_exp
   user: users_bool_exp
-  userId: Int_comparison_exp
+  user_Id: Int_comparison_exp
 }
 
 # unique or primary key constraints on table "profiles"
@@ -2197,44 +1653,44 @@ enum profiles_constraint {
 # input type for incrementing numeric columns in table "profiles"
 input profiles_inc_input {
   id: Int
-  userId: Int
+  user_Id: Int
 }
 
 # input type for inserting data into table "profiles"
 input profiles_insert_input {
-  avatarUrl: String
+  avatar_url: String
   biography: String
   id: Int
+  is_public: Boolean
   links: json
   location: String
-  phone: String
-  phoneVerified: Boolean
-  public: Boolean
+  phone_number: String
+  phone_verified: Boolean
   slug: String
   user: users_obj_rel_insert_input
-  userId: Int
+  user_Id: Int
 }
 
 # aggregate max on columns
 type profiles_max_fields {
-  avatarUrl: String
+  avatar_url: String
   biography: String
   id: Int
   location: String
-  phone: String
+  phone_number: String
   slug: String
-  userId: Int
+  user_Id: Int
 }
 
 # aggregate min on columns
 type profiles_min_fields {
-  avatarUrl: String
+  avatar_url: String
   biography: String
   id: Int
   location: String
-  phone: String
+  phone_number: String
   slug: String
-  userId: Int
+  user_Id: Int
 }
 
 # response of any mutation on the table "profiles"
@@ -2257,23 +1713,23 @@ input profiles_obj_rel_insert_input {
 # on conflict condition type for table "profiles"
 input profiles_on_conflict {
   constraint: profiles_constraint!
-  update_columns: [profiles_update_column!]! = []
+  update_columns: [profiles_update_column!]!
   where: profiles_bool_exp
 }
 
 # Ordering options when selecting data from "profiles".
 input profiles_order_by {
-  avatarUrl: order_by
+  avatar_url: order_by
   biography: order_by
   id: order_by
+  is_public: order_by
   links: order_by
   location: order_by
-  phone: order_by
-  phoneVerified: order_by
-  public: order_by
+  phone_number: order_by
+  phone_verified: order_by
   slug: order_by
   user: users_order_by
-  userId: order_by
+  user_Id: order_by
 }
 
 # primary key columns input for table: profiles
@@ -2284,7 +1740,7 @@ input profiles_pk_columns_input {
 # select columns of table "profiles"
 enum profiles_select_column {
   # column name
-  avatarUrl
+  avatar_url
 
   # column name
   biography
@@ -2293,69 +1749,69 @@ enum profiles_select_column {
   id
 
   # column name
+  is_public
+
+  # column name
   links
 
   # column name
   location
 
   # column name
-  phone
+  phone_number
 
   # column name
-  phoneVerified
-
-  # column name
-  public
+  phone_verified
 
   # column name
   slug
 
   # column name
-  userId
+  user_Id
 }
 
 # input type for updating data in table "profiles"
 input profiles_set_input {
-  avatarUrl: String
+  avatar_url: String
   biography: String
   id: Int
+  is_public: Boolean
   links: json
   location: String
-  phone: String
-  phoneVerified: Boolean
-  public: Boolean
+  phone_number: String
+  phone_verified: Boolean
   slug: String
-  userId: Int
+  user_Id: Int
 }
 
 # aggregate stddev on columns
 type profiles_stddev_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 # aggregate stddev_pop on columns
 type profiles_stddev_pop_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 # aggregate stddev_samp on columns
 type profiles_stddev_samp_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 # aggregate sum on columns
 type profiles_sum_fields {
   id: Int
-  userId: Int
+  user_Id: Int
 }
 
 # update columns of table "profiles"
 enum profiles_update_column {
   # column name
-  avatarUrl
+  avatar_url
 
   # column name
   biography
@@ -2364,43 +1820,43 @@ enum profiles_update_column {
   id
 
   # column name
+  is_public
+
+  # column name
   links
 
   # column name
   location
 
   # column name
-  phone
+  phone_number
 
   # column name
-  phoneVerified
-
-  # column name
-  public
+  phone_verified
 
   # column name
   slug
 
   # column name
-  userId
+  user_Id
 }
 
 # aggregate var_pop on columns
 type profiles_var_pop_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 # aggregate var_samp on columns
 type profiles_var_samp_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 # aggregate variance on columns
 type profiles_variance_fields {
   id: Float
-  userId: Float
+  user_Id: Float
 }
 
 type query_root {
@@ -2443,46 +1899,7 @@ type query_root {
   # fetch data from the table: "activity_logins" using primary key columns
   activity_logins_by_pk(id: Int!): activity_logins
 
-  # An array relationship
-  courses(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): [courses!]!
-
-  # An aggregate relationship
-  courses_aggregate(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): courses_aggregate!
-
-  # fetch data from the table: "courses" using primary key columns
-  courses_by_pk(id: Int!): courses
-
-  # An array relationship
+  # fetch data from the table: "pages"
   pages(
     # distinct select on columns
     distinct_on: [pages_select_column!]
@@ -2500,7 +1917,7 @@ type query_root {
     where: pages_bool_exp
   ): [pages!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "pages"
   pages_aggregate(
     # distinct select on columns
     distinct_on: [pages_select_column!]
@@ -2521,7 +1938,7 @@ type query_root {
   # fetch data from the table: "pages" using primary key columns
   pages_by_pk(id: Int!): pages
 
-  # An array relationship
+  # fetch data from the table: "posts"
   posts(
     # distinct select on columns
     distinct_on: [posts_select_column!]
@@ -2539,7 +1956,7 @@ type query_root {
     where: posts_bool_exp
   ): [posts!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "posts"
   posts_aggregate(
     # distinct select on columns
     distinct_on: [posts_select_column!]
@@ -2656,7 +2073,7 @@ type query_root {
     where: tags_bool_exp
   ): [tags!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "tags"
   tags_aggregate(
     # distinct select on columns
     distinct_on: [tags_select_column!]
@@ -2677,7 +2094,7 @@ type query_root {
   # fetch data from the table: "tags" using primary key columns
   tags_by_pk(id: Int!): tags
 
-  # An array relationship
+  # fetch data from the table: "topics"
   topics(
     # distinct select on columns
     distinct_on: [topics_select_column!]
@@ -2695,7 +2112,7 @@ type query_root {
     where: topics_bool_exp
   ): [topics!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "topics"
   topics_aggregate(
     # distinct select on columns
     distinct_on: [topics_select_column!]
@@ -2716,7 +2133,7 @@ type query_root {
   # fetch data from the table: "topics" using primary key columns
   topics_by_pk(id: Int!): topics
 
-  # An array relationship
+  # fetch data from the table: "users"
   users(
     # distinct select on columns
     distinct_on: [users_select_column!]
@@ -2734,7 +2151,7 @@ type query_root {
     where: users_bool_exp
   ): [users!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "users"
   users_aggregate(
     # distinct select on columns
     distinct_on: [users_select_column!]
@@ -2900,7 +2317,7 @@ input roles_obj_rel_insert_input {
 # on conflict condition type for table "roles"
 input roles_on_conflict {
   constraint: roles_constraint!
-  update_columns: [roles_update_column!]! = []
+  update_columns: [roles_update_column!]!
   where: roles_bool_exp
 }
 
@@ -3000,9 +2417,6 @@ input String_comparison_exp {
   # does the column match the given case-insensitive pattern
   _ilike: String
   _in: [String!]
-
-  # does the column match the given POSIX regular expression, case insensitive
-  _iregex: String
   _is_null: Boolean
 
   # does the column match the given pattern
@@ -3015,20 +2429,11 @@ input String_comparison_exp {
   _nilike: String
   _nin: [String!]
 
-  # does the column NOT match the given POSIX regular expression, case insensitive
-  _niregex: String
-
   # does the column NOT match the given pattern
   _nlike: String
 
-  # does the column NOT match the given POSIX regular expression, case sensitive
-  _nregex: String
-
   # does the column NOT match the given SQL regular expression
   _nsimilar: String
-
-  # does the column match the given POSIX regular expression, case sensitive
-  _regex: String
 
   # does the column match the given SQL regular expression
   _similar: String
@@ -3074,46 +2479,7 @@ type subscription_root {
   # fetch data from the table: "activity_logins" using primary key columns
   activity_logins_by_pk(id: Int!): activity_logins
 
-  # An array relationship
-  courses(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): [courses!]!
-
-  # An aggregate relationship
-  courses_aggregate(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): courses_aggregate!
-
-  # fetch data from the table: "courses" using primary key columns
-  courses_by_pk(id: Int!): courses
-
-  # An array relationship
+  # fetch data from the table: "pages"
   pages(
     # distinct select on columns
     distinct_on: [pages_select_column!]
@@ -3131,7 +2497,7 @@ type subscription_root {
     where: pages_bool_exp
   ): [pages!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "pages"
   pages_aggregate(
     # distinct select on columns
     distinct_on: [pages_select_column!]
@@ -3152,7 +2518,7 @@ type subscription_root {
   # fetch data from the table: "pages" using primary key columns
   pages_by_pk(id: Int!): pages
 
-  # An array relationship
+  # fetch data from the table: "posts"
   posts(
     # distinct select on columns
     distinct_on: [posts_select_column!]
@@ -3170,7 +2536,7 @@ type subscription_root {
     where: posts_bool_exp
   ): [posts!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "posts"
   posts_aggregate(
     # distinct select on columns
     distinct_on: [posts_select_column!]
@@ -3287,7 +2653,7 @@ type subscription_root {
     where: tags_bool_exp
   ): [tags!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "tags"
   tags_aggregate(
     # distinct select on columns
     distinct_on: [tags_select_column!]
@@ -3308,7 +2674,7 @@ type subscription_root {
   # fetch data from the table: "tags" using primary key columns
   tags_by_pk(id: Int!): tags
 
-  # An array relationship
+  # fetch data from the table: "topics"
   topics(
     # distinct select on columns
     distinct_on: [topics_select_column!]
@@ -3326,7 +2692,7 @@ type subscription_root {
     where: topics_bool_exp
   ): [topics!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "topics"
   topics_aggregate(
     # distinct select on columns
     distinct_on: [topics_select_column!]
@@ -3347,7 +2713,7 @@ type subscription_root {
   # fetch data from the table: "topics" using primary key columns
   topics_by_pk(id: Int!): topics
 
-  # An array relationship
+  # fetch data from the table: "users"
   users(
     # distinct select on columns
     distinct_on: [users_select_column!]
@@ -3365,7 +2731,7 @@ type subscription_root {
     where: users_bool_exp
   ): [users!]!
 
-  # An aggregate relationship
+  # fetch aggregated fields from the table: "users"
   users_aggregate(
     # distinct select on columns
     distinct_on: [users_select_column!]
@@ -3389,13 +2755,13 @@ type subscription_root {
 
 # columns and relationships of "tags"
 type tags {
-  createdAt: timestamptz!
-  createdBy: Int!
+  created_at: timestamptz!
+  created_by_id: Int!
   id: Int!
   slug: String!
   title: String!
-  updatedAt: timestamptz!
-  updatedBy: Int!
+  updated_at: timestamptz!
+  updated_by_id: Int!
 
   # An object relationship
   user: users!
@@ -3450,16 +2816,16 @@ input tags_arr_rel_insert_input {
 
 # aggregate avg on columns
 type tags_avg_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by avg() on columns of table "tags"
 input tags_avg_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # Boolean expression to filter rows from the table "tags". All fields are combined with a logical 'AND'.
@@ -3467,13 +2833,13 @@ input tags_bool_exp {
   _and: [tags_bool_exp!]
   _not: tags_bool_exp
   _or: [tags_bool_exp!]
-  createdAt: timestamptz_comparison_exp
-  createdBy: Int_comparison_exp
+  created_at: timestamptz_comparison_exp
+  created_by_id: Int_comparison_exp
   id: Int_comparison_exp
   slug: String_comparison_exp
   title: String_comparison_exp
-  updatedAt: timestamptz_comparison_exp
-  updatedBy: Int_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  updated_by_id: Int_comparison_exp
   user: users_bool_exp
   userByUpdatedById: users_bool_exp
 }
@@ -3492,66 +2858,66 @@ enum tags_constraint {
 
 # input type for incrementing numeric columns in table "tags"
 input tags_inc_input {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # input type for inserting data into table "tags"
 input tags_insert_input {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   user: users_obj_rel_insert_input
   userByUpdatedById: users_obj_rel_insert_input
 }
 
 # aggregate max on columns
 type tags_max_fields {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by max() on columns of table "tags"
 input tags_max_order_by {
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # aggregate min on columns
 type tags_min_fields {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by min() on columns of table "tags"
 input tags_min_order_by {
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # response of any mutation on the table "tags"
@@ -3566,19 +2932,19 @@ type tags_mutation_response {
 # on conflict condition type for table "tags"
 input tags_on_conflict {
   constraint: tags_constraint!
-  update_columns: [tags_update_column!]! = []
+  update_columns: [tags_update_column!]!
   where: tags_bool_exp
 }
 
 # Ordering options when selecting data from "tags".
 input tags_order_by {
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
   user: users_order_by
   userByUpdatedById: users_order_by
 }
@@ -3591,10 +2957,10 @@ input tags_pk_columns_input {
 # select columns of table "tags"
 enum tags_select_column {
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
@@ -3606,86 +2972,86 @@ enum tags_select_column {
   title
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # input type for updating data in table "tags"
 input tags_set_input {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # aggregate stddev on columns
 type tags_stddev_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev() on columns of table "tags"
 input tags_stddev_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_pop on columns
 type tags_stddev_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_pop() on columns of table "tags"
 input tags_stddev_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_samp on columns
 type tags_stddev_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_samp() on columns of table "tags"
 input tags_stddev_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate sum on columns
 type tags_sum_fields {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # order by sum() on columns of table "tags"
 input tags_sum_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # update columns of table "tags"
 enum tags_update_column {
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
@@ -3697,52 +3063,52 @@ enum tags_update_column {
   title
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # aggregate var_pop on columns
 type tags_var_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_pop() on columns of table "tags"
 input tags_var_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate var_samp on columns
 type tags_var_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_samp() on columns of table "tags"
 input tags_var_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate variance on columns
 type tags_variance_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by variance() on columns of table "tags"
 input tags_variance_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 scalar timestamptz
@@ -3762,17 +3128,17 @@ input timestamptz_comparison_exp {
 
 # columns and relationships of "topics"
 type topics {
-  createdAt: timestamptz!
-  createdBy: Int!
+  created_at: timestamptz!
+  created_by_id: Int!
   id: Int!
-  parentTopicIds(
+  parent_topic_ids(
     # JSON select path
     path: String
   ): json
   slug: String!
   title: String!
-  updatedAt: timestamptz!
-  updatedBy: Int!
+  updated_at: timestamptz!
+  updated_by_id: Int!
 
   # An object relationship
   user: users!
@@ -3827,16 +3193,16 @@ input topics_arr_rel_insert_input {
 
 # aggregate avg on columns
 type topics_avg_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by avg() on columns of table "topics"
 input topics_avg_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # Boolean expression to filter rows from the table "topics". All fields are combined with a logical 'AND'.
@@ -3844,14 +3210,14 @@ input topics_bool_exp {
   _and: [topics_bool_exp!]
   _not: topics_bool_exp
   _or: [topics_bool_exp!]
-  createdAt: timestamptz_comparison_exp
-  createdBy: Int_comparison_exp
+  created_at: timestamptz_comparison_exp
+  created_by_id: Int_comparison_exp
   id: Int_comparison_exp
-  parentTopicIds: json_comparison_exp
+  parent_topic_ids: json_comparison_exp
   slug: String_comparison_exp
   title: String_comparison_exp
-  updatedAt: timestamptz_comparison_exp
-  updatedBy: Int_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  updated_by_id: Int_comparison_exp
   user: users_bool_exp
   userByUpdatedById: users_bool_exp
 }
@@ -3870,67 +3236,67 @@ enum topics_constraint {
 
 # input type for incrementing numeric columns in table "topics"
 input topics_inc_input {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # input type for inserting data into table "topics"
 input topics_insert_input {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
-  parentTopicIds: json
+  parent_topic_ids: json
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   user: users_obj_rel_insert_input
   userByUpdatedById: users_obj_rel_insert_input
 }
 
 # aggregate max on columns
 type topics_max_fields {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by max() on columns of table "topics"
 input topics_max_order_by {
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # aggregate min on columns
 type topics_min_fields {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # order by min() on columns of table "topics"
 input topics_min_order_by {
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
   slug: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
 }
 
 # response of any mutation on the table "topics"
@@ -3945,20 +3311,20 @@ type topics_mutation_response {
 # on conflict condition type for table "topics"
 input topics_on_conflict {
   constraint: topics_constraint!
-  update_columns: [topics_update_column!]! = []
+  update_columns: [topics_update_column!]!
   where: topics_bool_exp
 }
 
 # Ordering options when selecting data from "topics".
 input topics_order_by {
-  createdAt: order_by
-  createdBy: order_by
+  created_at: order_by
+  created_by_id: order_by
   id: order_by
-  parentTopicIds: order_by
+  parent_topic_ids: order_by
   slug: order_by
   title: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
   user: users_order_by
   userByUpdatedById: users_order_by
 }
@@ -3971,16 +3337,16 @@ input topics_pk_columns_input {
 # select columns of table "topics"
 enum topics_select_column {
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
 
   # column name
-  parentTopicIds
+  parent_topic_ids
 
   # column name
   slug
@@ -3989,93 +3355,93 @@ enum topics_select_column {
   title
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # input type for updating data in table "topics"
 input topics_set_input {
-  createdAt: timestamptz
-  createdBy: Int
+  created_at: timestamptz
+  created_by_id: Int
   id: Int
-  parentTopicIds: json
+  parent_topic_ids: json
   slug: String
   title: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
 }
 
 # aggregate stddev on columns
 type topics_stddev_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev() on columns of table "topics"
 input topics_stddev_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_pop on columns
 type topics_stddev_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_pop() on columns of table "topics"
 input topics_stddev_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_samp on columns
 type topics_stddev_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by stddev_samp() on columns of table "topics"
 input topics_stddev_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate sum on columns
 type topics_sum_fields {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  updatedBy: Int
+  updated_by_id: Int
 }
 
 # order by sum() on columns of table "topics"
 input topics_sum_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # update columns of table "topics"
 enum topics_update_column {
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
   id
 
   # column name
-  parentTopicIds
+  parent_topic_ids
 
   # column name
   slug
@@ -4084,138 +3450,58 @@ enum topics_update_column {
   title
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 }
 
 # aggregate var_pop on columns
 type topics_var_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_pop() on columns of table "topics"
 input topics_var_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate var_samp on columns
 type topics_var_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by var_samp() on columns of table "topics"
 input topics_var_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # aggregate variance on columns
 type topics_variance_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  updatedBy: Float
+  updated_by_id: Float
 }
 
 # order by variance() on columns of table "topics"
 input topics_variance_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  updatedBy: order_by
+  updated_by_id: order_by
 }
 
 # columns and relationships of "users"
 type users {
   # An array relationship
-  courses(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): [courses!]!
-
-  # An array relationship
-  coursesByUpdatedById(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): [courses!]!
-
-  # An aggregate relationship
-  coursesByUpdatedById_aggregate(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): courses_aggregate!
-
-  # An aggregate relationship
-  courses_aggregate(
-    # distinct select on columns
-    distinct_on: [courses_select_column!]
-
-    # limit the number of rows returned
-    limit: Int
-
-    # skip the first n rows. Use only with order_by
-    offset: Int
-
-    # sort the rows by one or more columns
-    order_by: [courses_order_by!]
-
-    # filter the rows returned
-    where: courses_bool_exp
-  ): courses_aggregate!
-  createdAt: timestamptz!
-  createdBy: Int
-  email: String
-  firstName: String!
-  fullName: String
-  id: Int!
-  lastActive: timestamptz
-  lastName: String!
-
-  # An array relationship
-  logins(
+  activity_logins(
     # distinct select on columns
     distinct_on: [activity_logins_select_column!]
 
@@ -4233,7 +3519,7 @@ type users {
   ): [activity_logins!]!
 
   # An aggregate relationship
-  logins_aggregate(
+  activity_logins_aggregate(
     # distinct select on columns
     distinct_on: [activity_logins_select_column!]
 
@@ -4249,6 +3535,14 @@ type users {
     # filter the rows returned
     where: activity_logins_bool_exp
   ): activity_logins_aggregate!
+  created_at: timestamptz!
+  created_by_id: Int
+  email_address: String
+  first_name: String!
+  full_name: String
+  id: Int!
+  last_active: timestamptz
+  last_name: String!
 
   # An array relationship
   pages(
@@ -4269,7 +3563,7 @@ type users {
   ): [pages!]!
 
   # An array relationship
-  pagesByCreatedById(
+  pagesByUpdatedById(
     # distinct select on columns
     distinct_on: [pages_select_column!]
 
@@ -4287,7 +3581,7 @@ type users {
   ): [pages!]!
 
   # An aggregate relationship
-  pagesByCreatedById_aggregate(
+  pagesByUpdatedById_aggregate(
     # distinct select on columns
     distinct_on: [pages_select_column!]
 
@@ -4400,10 +3694,10 @@ type users {
 
   # An object relationship
   role: roles!
-  roleId: Int!
+  role_id: Int!
   status: String!
 
-  # fetch data from the table: "tags"
+  # An array relationship
   tags(
     # distinct select on columns
     distinct_on: [tags_select_column!]
@@ -4546,14 +3840,14 @@ type users {
     # filter the rows returned
     where: topics_bool_exp
   ): topics_aggregate!
-  updatedAt: timestamptz!
-  updatedBy: Int
+  updated_at: timestamptz!
+  updated_by_id: Int
 
   # An object relationship
-  user: users
+  user: users!
 
   # An object relationship
-  userByUpdatedById: users
+  userByUpdatedById: users!
   username: String
 
   # An array relationship
@@ -4676,18 +3970,18 @@ input users_arr_rel_insert_input {
 
 # aggregate avg on columns
 type users_avg_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by avg() on columns of table "users"
 input users_avg_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'.
@@ -4695,32 +3989,30 @@ input users_bool_exp {
   _and: [users_bool_exp!]
   _not: users_bool_exp
   _or: [users_bool_exp!]
-  courses: courses_bool_exp
-  coursesByUpdatedById: courses_bool_exp
-  createdAt: timestamptz_comparison_exp
-  createdBy: Int_comparison_exp
-  email: String_comparison_exp
-  firstName: String_comparison_exp
-  fullName: String_comparison_exp
+  activity_logins: activity_logins_bool_exp
+  created_at: timestamptz_comparison_exp
+  created_by_id: Int_comparison_exp
+  email_address: String_comparison_exp
+  first_name: String_comparison_exp
+  full_name: String_comparison_exp
   id: Int_comparison_exp
-  lastActive: timestamptz_comparison_exp
-  lastName: String_comparison_exp
-  logins: activity_logins_bool_exp
+  last_active: timestamptz_comparison_exp
+  last_name: String_comparison_exp
   pages: pages_bool_exp
-  pagesByCreatedById: pages_bool_exp
+  pagesByUpdatedById: pages_bool_exp
   posts: posts_bool_exp
   postsByUpdatedById: posts_bool_exp
   profile: profiles_bool_exp
   pronouns: String_comparison_exp
   role: roles_bool_exp
-  roleId: Int_comparison_exp
+  role_id: Int_comparison_exp
   status: String_comparison_exp
   tags: tags_bool_exp
   tagsByUpdatedById: tags_bool_exp
   topics: topics_bool_exp
   topicsByUpdatedById: topics_bool_exp
-  updatedAt: timestamptz_comparison_exp
-  updatedBy: Int_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  updated_by_id: Int_comparison_exp
   user: users_bool_exp
   userByUpdatedById: users_bool_exp
   username: String_comparison_exp
@@ -4743,40 +4035,38 @@ enum users_constraint {
 
 # input type for incrementing numeric columns in table "users"
 input users_inc_input {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  roleId: Int
-  updatedBy: Int
+  role_id: Int
+  updated_by_id: Int
 }
 
 # input type for inserting data into table "users"
 input users_insert_input {
-  courses: courses_arr_rel_insert_input
-  coursesByUpdatedById: courses_arr_rel_insert_input
-  createdAt: timestamptz
-  createdBy: Int
-  email: String
-  firstName: String
-  fullName: String
+  activity_logins: activity_logins_arr_rel_insert_input
+  created_at: timestamptz
+  created_by_id: Int
+  email_address: String
+  first_name: String
+  full_name: String
   id: Int
-  lastActive: timestamptz
-  lastName: String
-  logins: activity_logins_arr_rel_insert_input
+  last_active: timestamptz
+  last_name: String
   pages: pages_arr_rel_insert_input
-  pagesByCreatedById: pages_arr_rel_insert_input
+  pagesByUpdatedById: pages_arr_rel_insert_input
   posts: posts_arr_rel_insert_input
   postsByUpdatedById: posts_arr_rel_insert_input
   profile: profiles_obj_rel_insert_input
   pronouns: String
   role: roles_obj_rel_insert_input
-  roleId: Int
+  role_id: Int
   status: String
   tags: tags_arr_rel_insert_input
   tagsByUpdatedById: tags_arr_rel_insert_input
   topics: topics_arr_rel_insert_input
   topicsByUpdatedById: topics_arr_rel_insert_input
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   user: users_obj_rel_insert_input
   userByUpdatedById: users_obj_rel_insert_input
   username: String
@@ -4787,73 +4077,73 @@ input users_insert_input {
 
 # aggregate max on columns
 type users_max_fields {
-  createdAt: timestamptz
-  createdBy: Int
-  email: String
-  firstName: String
-  fullName: String
+  created_at: timestamptz
+  created_by_id: Int
+  email_address: String
+  first_name: String
+  full_name: String
   id: Int
-  lastActive: timestamptz
-  lastName: String
+  last_active: timestamptz
+  last_name: String
   pronouns: String
-  roleId: Int
+  role_id: Int
   status: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   username: String
 }
 
 # order by max() on columns of table "users"
 input users_max_order_by {
-  createdAt: order_by
-  createdBy: order_by
-  email: order_by
-  firstName: order_by
-  fullName: order_by
+  created_at: order_by
+  created_by_id: order_by
+  email_address: order_by
+  first_name: order_by
+  full_name: order_by
   id: order_by
-  lastActive: order_by
-  lastName: order_by
+  last_active: order_by
+  last_name: order_by
   pronouns: order_by
-  roleId: order_by
+  role_id: order_by
   status: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
   username: order_by
 }
 
 # aggregate min on columns
 type users_min_fields {
-  createdAt: timestamptz
-  createdBy: Int
-  email: String
-  firstName: String
-  fullName: String
+  created_at: timestamptz
+  created_by_id: Int
+  email_address: String
+  first_name: String
+  full_name: String
   id: Int
-  lastActive: timestamptz
-  lastName: String
+  last_active: timestamptz
+  last_name: String
   pronouns: String
-  roleId: Int
+  role_id: Int
   status: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   username: String
 }
 
 # order by min() on columns of table "users"
 input users_min_order_by {
-  createdAt: order_by
-  createdBy: order_by
-  email: order_by
-  firstName: order_by
-  fullName: order_by
+  created_at: order_by
+  created_by_id: order_by
+  email_address: order_by
+  first_name: order_by
+  full_name: order_by
   id: order_by
-  lastActive: order_by
-  lastName: order_by
+  last_active: order_by
+  last_name: order_by
   pronouns: order_by
-  roleId: order_by
+  role_id: order_by
   status: order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
   username: order_by
 }
 
@@ -4877,38 +4167,36 @@ input users_obj_rel_insert_input {
 # on conflict condition type for table "users"
 input users_on_conflict {
   constraint: users_constraint!
-  update_columns: [users_update_column!]! = []
+  update_columns: [users_update_column!]!
   where: users_bool_exp
 }
 
 # Ordering options when selecting data from "users".
 input users_order_by {
-  coursesByUpdatedById_aggregate: courses_aggregate_order_by
-  courses_aggregate: courses_aggregate_order_by
-  createdAt: order_by
-  createdBy: order_by
-  email: order_by
-  firstName: order_by
-  fullName: order_by
+  activity_logins_aggregate: activity_logins_aggregate_order_by
+  created_at: order_by
+  created_by_id: order_by
+  email_address: order_by
+  first_name: order_by
+  full_name: order_by
   id: order_by
-  lastActive: order_by
-  lastName: order_by
-  logins_aggregate: activity_logins_aggregate_order_by
-  pagesByCreatedById_aggregate: pages_aggregate_order_by
+  last_active: order_by
+  last_name: order_by
+  pagesByUpdatedById_aggregate: pages_aggregate_order_by
   pages_aggregate: pages_aggregate_order_by
   postsByUpdatedById_aggregate: posts_aggregate_order_by
   posts_aggregate: posts_aggregate_order_by
   profile: profiles_order_by
   pronouns: order_by
   role: roles_order_by
-  roleId: order_by
+  role_id: order_by
   status: order_by
   tagsByUpdatedById_aggregate: tags_aggregate_order_by
   tags_aggregate: tags_aggregate_order_by
   topicsByUpdatedById_aggregate: topics_aggregate_order_by
   topics_aggregate: topics_aggregate_order_by
-  updatedAt: order_by
-  updatedBy: order_by
+  updated_at: order_by
+  updated_by_id: order_by
   user: users_order_by
   userByUpdatedById: users_order_by
   username: order_by
@@ -4925,43 +4213,43 @@ input users_pk_columns_input {
 # select columns of table "users"
 enum users_select_column {
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
-  email
+  email_address
 
   # column name
-  firstName
+  first_name
 
   # column name
-  fullName
+  full_name
 
   # column name
   id
 
   # column name
-  lastActive
+  last_active
 
   # column name
-  lastName
+  last_name
 
   # column name
   pronouns
 
   # column name
-  roleId
+  role_id
 
   # column name
   status
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 
   # column name
   username
@@ -4972,127 +4260,127 @@ enum users_select_column {
 
 # input type for updating data in table "users"
 input users_set_input {
-  createdAt: timestamptz
-  createdBy: Int
-  email: String
-  firstName: String
-  fullName: String
+  created_at: timestamptz
+  created_by_id: Int
+  email_address: String
+  first_name: String
+  full_name: String
   id: Int
-  lastActive: timestamptz
-  lastName: String
+  last_active: timestamptz
+  last_name: String
   pronouns: String
-  roleId: Int
+  role_id: Int
   status: String
-  updatedAt: timestamptz
-  updatedBy: Int
+  updated_at: timestamptz
+  updated_by_id: Int
   username: String
   verified: Boolean
 }
 
 # aggregate stddev on columns
 type users_stddev_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by stddev() on columns of table "users"
 input users_stddev_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_pop on columns
 type users_stddev_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by stddev_pop() on columns of table "users"
 input users_stddev_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # aggregate stddev_samp on columns
 type users_stddev_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by stddev_samp() on columns of table "users"
 input users_stddev_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # aggregate sum on columns
 type users_sum_fields {
-  createdBy: Int
+  created_by_id: Int
   id: Int
-  roleId: Int
-  updatedBy: Int
+  role_id: Int
+  updated_by_id: Int
 }
 
 # order by sum() on columns of table "users"
 input users_sum_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # update columns of table "users"
 enum users_update_column {
   # column name
-  createdAt
+  created_at
 
   # column name
-  createdBy
+  created_by_id
 
   # column name
-  email
+  email_address
 
   # column name
-  firstName
+  first_name
 
   # column name
-  fullName
+  full_name
 
   # column name
   id
 
   # column name
-  lastActive
+  last_active
 
   # column name
-  lastName
+  last_name
 
   # column name
   pronouns
 
   # column name
-  roleId
+  role_id
 
   # column name
   status
 
   # column name
-  updatedAt
+  updated_at
 
   # column name
-  updatedBy
+  updated_by_id
 
   # column name
   username
@@ -5103,49 +4391,49 @@ enum users_update_column {
 
 # aggregate var_pop on columns
 type users_var_pop_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by var_pop() on columns of table "users"
 input users_var_pop_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # aggregate var_samp on columns
 type users_var_samp_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by var_samp() on columns of table "users"
 input users_var_samp_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
 # aggregate variance on columns
 type users_variance_fields {
-  createdBy: Float
+  created_by_id: Float
   id: Float
-  roleId: Float
-  updatedBy: Float
+  role_id: Float
+  updated_by_id: Float
 }
 
 # order by variance() on columns of table "users"
 input users_variance_order_by {
-  createdBy: order_by
+  created_by_id: order_by
   id: order_by
-  roleId: order_by
-  updatedBy: order_by
+  role_id: order_by
+  updated_by_id: order_by
 }
 
