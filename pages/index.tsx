@@ -15,18 +15,18 @@ const Home: React.FC = () => {
             <Col xs={4} sm={4} md={4} lg={5} xl={5}>
               <div className={styles.content}>
                 <h1>
-                  Master <span>frontend</span> web development
+                  I'm Austin Biggs
                 </h1>
                 <p>
-                  Learn about all things frontend including TypeScript, React,
-                  Apollo, GraphQL, etc.
+                  A Senior Frontend Engineer in Denver, CO specializing in React, Apollo, Redux, and more!
                 </p>
                 <Button
                   className={styles.button}
-                  href="/blog"
+                  href="https://www.linkedin.com/in/austinbiggs/"
+                  target="_blank"
                   variant="success"
                 >
-                  Start Reading
+                  Say Hello
                   <Icon className={styles.icon} icon={faLongArrowAltRight} />
                 </Button>
               </div>

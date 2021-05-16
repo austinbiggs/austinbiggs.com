@@ -18,8 +18,8 @@ const Header: React.FC = () => {
 
   const links = [
     { href: "/", text: "Home", title: "Home" },
-    { href: "/about", text: "About", title: "About Austin Biggs" },
-    { href: "/blog", text: "Blog", title: "Blog" },
+    // { href: "/about", text: "About", title: "About Austin Biggs" },
+    // { href: "/blog", text: "Blog", title: "Blog" },
   ];
 
   const renderLinks = () =>
