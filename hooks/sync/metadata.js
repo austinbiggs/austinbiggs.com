@@ -7,6 +7,7 @@ const projectDir = process.cwd();
 const env = loadEnvConfig(projectDir).combinedEnv;
 
 const hasuraEndpoint = env.HASURA_ENDPOINT;
+const hasuraMetaDataEndpoint = `${hasuraEndpoint}/v1/metadata`;
 const hasuraAdminSecret = env.HASURA_ADMIN_SECRET;
 
 const metadata = () => {

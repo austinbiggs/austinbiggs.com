@@ -7,6 +7,7 @@ const projectDir = process.cwd();
 const env = loadEnvConfig(projectDir).combinedEnv;
 
 const hasuraEndpoint = env.HASURA_ENDPOINT;
+const hasuraPGDumpEndpoint = `${hasuraEndpoint}/v1alpha1/pg_dump`;
 const hasuraAdminSecret = env.HASURA_ADMIN_SECRET;
 
 const postgres = () => {
