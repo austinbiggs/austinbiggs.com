@@ -1,0 +1,19 @@
+@import "variables";
+
+.row {
+  align-items: flex-start;
+  display: flex;
+  line-height: 14px;
+
+  &:hover {
+    background-color: $light-gray-3;
+  }
+
+  &:nth-of-type(2){
+    background-color: $light-gray-3;
+
+    &:hover {
+      background-color: $light-gray-4;
+    }
+  }
+}

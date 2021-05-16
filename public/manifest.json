@@ -1,0 +1,13 @@
+{
+  "name": "AustinBiggs.com",
+  "short_name": "AustinBiggs",
+  "icons": [
+    {
+      "src": "icons/google-touch-icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#364b63",
+  "theme_color": "#364b63",
+  "display": "fullscreen"
+}

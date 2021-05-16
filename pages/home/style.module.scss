@@ -1,0 +1,60 @@
+@import "variables";
+
+.hero {
+  background-image: url("/images/home/hero-illustration.svg"),
+    url("/images/home/hero-background.svg");
+  background-position: bottom right, bottom right;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 107vh, 116vh;
+  min-height: 100vh;
+  padding-top: 35vh;
+
+  .content {
+    margin-left: 4vw;
+  }
+
+  h1 {
+    color: $blue-gray;
+    font-family: $font-family;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 50px;
+
+    span {
+      background-color: $blue-gray;
+      border-radius: 10px;
+      color: $white;
+      padding: 1px 5px;
+      display: inline-block;
+      line-height: 45px;
+    }
+  }
+
+  p {
+    color: $dark-gray;
+    font-family: $font-family;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 26px;
+    margin: 15px 0 20px 0;
+  }
+
+  .button {
+    background-color: $green;
+    border-radius: 20px;
+    font-family: $font-family;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-right: 10px;
+    text-transform: uppercase;
+
+    .icon {
+      color: $white;
+      font-size: 16px;
+      margin-left: 8px;
+      margin-right: 5px;
+      width: 16px;
+    }
+  }
+}

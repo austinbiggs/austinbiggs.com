@@ -1,0 +1,11 @@
+@import "variables";
+
+.layout {
+  padding-left: 70px;
+
+  .wrapper {
+    background-color: $off-white;
+    min-height: 100vh;
+    padding: 18px 0 0 0;
+  }
+}

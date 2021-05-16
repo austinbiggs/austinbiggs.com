@@ -1,0 +1,5151 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+# columns and relationships of "activity_logins"
+type activity_logins {
+  id: Int!
+  ip_address: String!
+  timestamp: timestamptz!
+
+  # An object relationship
+  user: users!
+  user_id: Int!
+}
+
+# aggregated selection of "activity_logins"
+type activity_logins_aggregate {
+  aggregate: activity_logins_aggregate_fields
+  nodes: [activity_logins!]!
+}
+
+# aggregate fields of "activity_logins"
+type activity_logins_aggregate_fields {
+  avg: activity_logins_avg_fields
+  count(columns: [activity_logins_select_column!], distinct: Boolean): Int!
+  max: activity_logins_max_fields
+  min: activity_logins_min_fields
+  stddev: activity_logins_stddev_fields
+  stddev_pop: activity_logins_stddev_pop_fields
+  stddev_samp: activity_logins_stddev_samp_fields
+  sum: activity_logins_sum_fields
+  var_pop: activity_logins_var_pop_fields
+  var_samp: activity_logins_var_samp_fields
+  variance: activity_logins_variance_fields
+}
+
+# order by aggregate values of table "activity_logins"
+input activity_logins_aggregate_order_by {
+  avg: activity_logins_avg_order_by
+  count: order_by
+  max: activity_logins_max_order_by
+  min: activity_logins_min_order_by
+  stddev: activity_logins_stddev_order_by
+  stddev_pop: activity_logins_stddev_pop_order_by
+  stddev_samp: activity_logins_stddev_samp_order_by
+  sum: activity_logins_sum_order_by
+  var_pop: activity_logins_var_pop_order_by
+  var_samp: activity_logins_var_samp_order_by
+  variance: activity_logins_variance_order_by
+}
+
+# input type for inserting array relation for remote table "activity_logins"
+input activity_logins_arr_rel_insert_input {
+  data: [activity_logins_insert_input!]!
+
+  # on conflict condition
+  on_conflict: activity_logins_on_conflict
+}
+
+# aggregate avg on columns
+type activity_logins_avg_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by avg() on columns of table "activity_logins"
+input activity_logins_avg_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# Boolean expression to filter rows from the table "activity_logins". All fields are combined with a logical 'AND'.
+input activity_logins_bool_exp {
+  _and: [activity_logins_bool_exp!]
+  _not: activity_logins_bool_exp
+  _or: [activity_logins_bool_exp!]
+  id: Int_comparison_exp
+  ip_address: String_comparison_exp
+  timestamp: timestamptz_comparison_exp
+  user: users_bool_exp
+  user_id: Int_comparison_exp
+}
+
+# unique or primary key constraints on table "activity_logins"
+enum activity_logins_constraint {
+  # unique or primary key constraint
+  activity_logins_id_key
+
+  # unique or primary key constraint
+  activity_logins_pkey
+
+  # unique or primary key constraint
+  activity_logins_user_id_timestamp_key
+}
+
+# input type for incrementing numeric columns in table "activity_logins"
+input activity_logins_inc_input {
+  id: Int
+  user_id: Int
+}
+
+# input type for inserting data into table "activity_logins"
+input activity_logins_insert_input {
+  id: Int
+  ip_address: String
+  timestamp: timestamptz
+  user: users_obj_rel_insert_input
+  user_id: Int
+}
+
+# aggregate max on columns
+type activity_logins_max_fields {
+  id: Int
+  ip_address: String
+  timestamp: timestamptz
+  user_id: Int
+}
+
+# order by max() on columns of table "activity_logins"
+input activity_logins_max_order_by {
+  id: order_by
+  ip_address: order_by
+  timestamp: order_by
+  user_id: order_by
+}
+
+# aggregate min on columns
+type activity_logins_min_fields {
+  id: Int
+  ip_address: String
+  timestamp: timestamptz
+  user_id: Int
+}
+
+# order by min() on columns of table "activity_logins"
+input activity_logins_min_order_by {
+  id: order_by
+  ip_address: order_by
+  timestamp: order_by
+  user_id: order_by
+}
+
+# response of any mutation on the table "activity_logins"
+type activity_logins_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [activity_logins!]!
+}
+
+# on conflict condition type for table "activity_logins"
+input activity_logins_on_conflict {
+  constraint: activity_logins_constraint!
+  update_columns: [activity_logins_update_column!]! = []
+  where: activity_logins_bool_exp
+}
+
+# Ordering options when selecting data from "activity_logins".
+input activity_logins_order_by {
+  id: order_by
+  ip_address: order_by
+  timestamp: order_by
+  user: users_order_by
+  user_id: order_by
+}
+
+# primary key columns input for table: activity_logins
+input activity_logins_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "activity_logins"
+enum activity_logins_select_column {
+  # column name
+  id
+
+  # column name
+  ip_address
+
+  # column name
+  timestamp
+
+  # column name
+  user_id
+}
+
+# input type for updating data in table "activity_logins"
+input activity_logins_set_input {
+  id: Int
+  ip_address: String
+  timestamp: timestamptz
+  user_id: Int
+}
+
+# aggregate stddev on columns
+type activity_logins_stddev_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by stddev() on columns of table "activity_logins"
+input activity_logins_stddev_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# aggregate stddev_pop on columns
+type activity_logins_stddev_pop_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by stddev_pop() on columns of table "activity_logins"
+input activity_logins_stddev_pop_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# aggregate stddev_samp on columns
+type activity_logins_stddev_samp_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by stddev_samp() on columns of table "activity_logins"
+input activity_logins_stddev_samp_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# aggregate sum on columns
+type activity_logins_sum_fields {
+  id: Int
+  user_id: Int
+}
+
+# order by sum() on columns of table "activity_logins"
+input activity_logins_sum_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# update columns of table "activity_logins"
+enum activity_logins_update_column {
+  # column name
+  id
+
+  # column name
+  ip_address
+
+  # column name
+  timestamp
+
+  # column name
+  user_id
+}
+
+# aggregate var_pop on columns
+type activity_logins_var_pop_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by var_pop() on columns of table "activity_logins"
+input activity_logins_var_pop_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# aggregate var_samp on columns
+type activity_logins_var_samp_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by var_samp() on columns of table "activity_logins"
+input activity_logins_var_samp_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+# aggregate variance on columns
+type activity_logins_variance_fields {
+  id: Float
+  user_id: Float
+}
+
+# order by variance() on columns of table "activity_logins"
+input activity_logins_variance_order_by {
+  id: order_by
+  user_id: order_by
+}
+
+input Auth0Input {
+  email: String!
+  emailVerified: String!
+  name: String!
+  phone: String!
+  phoneVerified: String!
+  picture: String!
+  username: String!
+}
+
+type Auth0Output {
+  accessToken: String!
+}
+
+# Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'.
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+# columns and relationships of "courses"
+type courses {
+  content: String!
+  created_at: timestamptz!
+  created_by_id: Int!
+  id: Int!
+  premium: Boolean!
+  price: numeric!
+  sku: String!
+  slug: String!
+  status: String!
+  summary: String!
+  title: String!
+  updated_at: timestamptz!
+  updated_by_id: Int!
+
+  # An object relationship
+  user: users!
+
+  # An object relationship
+  userByCreatedById: users!
+}
+
+# aggregated selection of "courses"
+type courses_aggregate {
+  aggregate: courses_aggregate_fields
+  nodes: [courses!]!
+}
+
+# aggregate fields of "courses"
+type courses_aggregate_fields {
+  avg: courses_avg_fields
+  count(columns: [courses_select_column!], distinct: Boolean): Int!
+  max: courses_max_fields
+  min: courses_min_fields
+  stddev: courses_stddev_fields
+  stddev_pop: courses_stddev_pop_fields
+  stddev_samp: courses_stddev_samp_fields
+  sum: courses_sum_fields
+  var_pop: courses_var_pop_fields
+  var_samp: courses_var_samp_fields
+  variance: courses_variance_fields
+}
+
+# order by aggregate values of table "courses"
+input courses_aggregate_order_by {
+  avg: courses_avg_order_by
+  count: order_by
+  max: courses_max_order_by
+  min: courses_min_order_by
+  stddev: courses_stddev_order_by
+  stddev_pop: courses_stddev_pop_order_by
+  stddev_samp: courses_stddev_samp_order_by
+  sum: courses_sum_order_by
+  var_pop: courses_var_pop_order_by
+  var_samp: courses_var_samp_order_by
+  variance: courses_variance_order_by
+}
+
+# input type for inserting array relation for remote table "courses"
+input courses_arr_rel_insert_input {
+  data: [courses_insert_input!]!
+
+  # on conflict condition
+  on_conflict: courses_on_conflict
+}
+
+# aggregate avg on columns
+type courses_avg_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by avg() on columns of table "courses"
+input courses_avg_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# Boolean expression to filter rows from the table "courses". All fields are combined with a logical 'AND'.
+input courses_bool_exp {
+  _and: [courses_bool_exp!]
+  _not: courses_bool_exp
+  _or: [courses_bool_exp!]
+  content: String_comparison_exp
+  created_at: timestamptz_comparison_exp
+  created_by_id: Int_comparison_exp
+  id: Int_comparison_exp
+  premium: Boolean_comparison_exp
+  price: numeric_comparison_exp
+  sku: String_comparison_exp
+  slug: String_comparison_exp
+  status: String_comparison_exp
+  summary: String_comparison_exp
+  title: String_comparison_exp
+  updated_at: timestamptz_comparison_exp
+  updated_by_id: Int_comparison_exp
+  user: users_bool_exp
+  userByCreatedById: users_bool_exp
+}
+
+# unique or primary key constraints on table "courses"
+enum courses_constraint {
+  # unique or primary key constraint
+  courses_pkey
+
+  # unique or primary key constraint
+  courses_sku_key
+
+  # unique or primary key constraint
+  courses_slug_key
+
+  # unique or primary key constraint
+  courses_title_key
+}
+
+# input type for incrementing numeric columns in table "courses"
+input courses_inc_input {
+  created_by_id: Int
+  id: Int
+  price: numeric
+  updated_by_id: Int
+}
+
+# input type for inserting data into table "courses"
+input courses_insert_input {
+  content: String
+  created_at: timestamptz
+  created_by_id: Int
+  id: Int
+  premium: Boolean
+  price: numeric
+  sku: String
+  slug: String
+  status: String
+  summary: String
+  title: String
+  updated_at: timestamptz
+  updated_by_id: Int
+  user: users_obj_rel_insert_input
+  userByCreatedById: users_obj_rel_insert_input
+}
+
+# aggregate max on columns
+type courses_max_fields {
+  content: String
+  created_at: timestamptz
+  created_by_id: Int
+  id: Int
+  price: numeric
+  sku: String
+  slug: String
+  status: String
+  summary: String
+  title: String
+  updated_at: timestamptz
+  updated_by_id: Int
+}
+
+# order by max() on columns of table "courses"
+input courses_max_order_by {
+  content: order_by
+  created_at: order_by
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  sku: order_by
+  slug: order_by
+  status: order_by
+  summary: order_by
+  title: order_by
+  updated_at: order_by
+  updated_by_id: order_by
+}
+
+# aggregate min on columns
+type courses_min_fields {
+  content: String
+  created_at: timestamptz
+  created_by_id: Int
+  id: Int
+  price: numeric
+  sku: String
+  slug: String
+  status: String
+  summary: String
+  title: String
+  updated_at: timestamptz
+  updated_by_id: Int
+}
+
+# order by min() on columns of table "courses"
+input courses_min_order_by {
+  content: order_by
+  created_at: order_by
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  sku: order_by
+  slug: order_by
+  status: order_by
+  summary: order_by
+  title: order_by
+  updated_at: order_by
+  updated_by_id: order_by
+}
+
+# response of any mutation on the table "courses"
+type courses_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [courses!]!
+}
+
+# on conflict condition type for table "courses"
+input courses_on_conflict {
+  constraint: courses_constraint!
+  update_columns: [courses_update_column!]! = []
+  where: courses_bool_exp
+}
+
+# Ordering options when selecting data from "courses".
+input courses_order_by {
+  content: order_by
+  created_at: order_by
+  created_by_id: order_by
+  id: order_by
+  premium: order_by
+  price: order_by
+  sku: order_by
+  slug: order_by
+  status: order_by
+  summary: order_by
+  title: order_by
+  updated_at: order_by
+  updated_by_id: order_by
+  user: users_order_by
+  userByCreatedById: users_order_by
+}
+
+# primary key columns input for table: courses
+input courses_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "courses"
+enum courses_select_column {
+  # column name
+  content
+
+  # column name
+  created_at
+
+  # column name
+  created_by_id
+
+  # column name
+  id
+
+  # column name
+  premium
+
+  # column name
+  price
+
+  # column name
+  sku
+
+  # column name
+  slug
+
+  # column name
+  status
+
+  # column name
+  summary
+
+  # column name
+  title
+
+  # column name
+  updated_at
+
+  # column name
+  updated_by_id
+}
+
+# input type for updating data in table "courses"
+input courses_set_input {
+  content: String
+  created_at: timestamptz
+  created_by_id: Int
+  id: Int
+  premium: Boolean
+  price: numeric
+  sku: String
+  slug: String
+  status: String
+  summary: String
+  title: String
+  updated_at: timestamptz
+  updated_by_id: Int
+}
+
+# aggregate stddev on columns
+type courses_stddev_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by stddev() on columns of table "courses"
+input courses_stddev_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# aggregate stddev_pop on columns
+type courses_stddev_pop_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by stddev_pop() on columns of table "courses"
+input courses_stddev_pop_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# aggregate stddev_samp on columns
+type courses_stddev_samp_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by stddev_samp() on columns of table "courses"
+input courses_stddev_samp_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# aggregate sum on columns
+type courses_sum_fields {
+  created_by_id: Int
+  id: Int
+  price: numeric
+  updated_by_id: Int
+}
+
+# order by sum() on columns of table "courses"
+input courses_sum_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# update columns of table "courses"
+enum courses_update_column {
+  # column name
+  content
+
+  # column name
+  created_at
+
+  # column name
+  created_by_id
+
+  # column name
+  id
+
+  # column name
+  premium
+
+  # column name
+  price
+
+  # column name
+  sku
+
+  # column name
+  slug
+
+  # column name
+  status
+
+  # column name
+  summary
+
+  # column name
+  title
+
+  # column name
+  updated_at
+
+  # column name
+  updated_by_id
+}
+
+# aggregate var_pop on columns
+type courses_var_pop_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by var_pop() on columns of table "courses"
+input courses_var_pop_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# aggregate var_samp on columns
+type courses_var_samp_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by var_samp() on columns of table "courses"
+input courses_var_samp_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# aggregate variance on columns
+type courses_variance_fields {
+  created_by_id: Float
+  id: Float
+  price: Float
+  updated_by_id: Float
+}
+
+# order by variance() on columns of table "courses"
+input courses_variance_order_by {
+  created_by_id: order_by
+  id: order_by
+  price: order_by
+  updated_by_id: order_by
+}
+
+# Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'.
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+scalar json
+
+# Boolean expression to compare columns of type "json". All fields are combined with logical 'AND'.
+input json_comparison_exp {
+  _eq: json
+  _gt: json
+  _gte: json
+  _in: [json!]
+  _is_null: Boolean
+  _lt: json
+  _lte: json
+  _neq: json
+  _nin: [json!]
+}
+
+# mutation root
+type mutation_root {
+  createAuth0User(arg1: Auth0Input!): Auth0Output
+
+  # delete data from the table: "activity_logins"
+  delete_activity_logins(
+    # filter the rows which have to be deleted
+    where: activity_logins_bool_exp!
+  ): activity_logins_mutation_response
+
+  # delete single row from the table: "activity_logins"
+  delete_activity_logins_by_pk(id: Int!): activity_logins
+
+  # delete data from the table: "courses"
+  delete_courses(
+    # filter the rows which have to be deleted
+    where: courses_bool_exp!
+  ): courses_mutation_response
+
+  # delete single row from the table: "courses"
+  delete_courses_by_pk(id: Int!): courses
+
+  # delete data from the table: "pages"
+  delete_pages(
+    # filter the rows which have to be deleted
+    where: pages_bool_exp!
+  ): pages_mutation_response
+
+  # delete single row from the table: "pages"
+  delete_pages_by_pk(id: Int!): pages
+
+  # delete data from the table: "posts"
+  delete_posts(
+    # filter the rows which have to be deleted
+    where: posts_bool_exp!
+  ): posts_mutation_response
+
+  # delete single row from the table: "posts"
+  delete_posts_by_pk(id: Int!): posts
+
+  # delete data from the table: "profiles"
+  delete_profiles(
+    # filter the rows which have to be deleted
+    where: profiles_bool_exp!
+  ): profiles_mutation_response
+
+  # delete single row from the table: "profiles"
+  delete_profiles_by_pk(id: Int!): profiles
+
+  # delete data from the table: "roles"
+  delete_roles(
+    # filter the rows which have to be deleted
+    where: roles_bool_exp!
+  ): roles_mutation_response
+
+  # delete single row from the table: "roles"
+  delete_roles_by_pk(id: Int!): roles
+
+  # delete data from the table: "tags"
+  delete_tags(
+    # filter the rows which have to be deleted
+    where: tags_bool_exp!
+  ): tags_mutation_response
+
+  # delete single row from the table: "tags"
+  delete_tags_by_pk(id: Int!): tags
+
+  # delete data from the table: "topics"
+  delete_topics(
+    # filter the rows which have to be deleted
+    where: topics_bool_exp!
+  ): topics_mutation_response
+
+  # delete single row from the table: "topics"
+  delete_topics_by_pk(id: Int!): topics
+
+  # delete data from the table: "users"
+  delete_users(
+    # filter the rows which have to be deleted
+    where: users_bool_exp!
+  ): users_mutation_response
+
+  # delete single row from the table: "users"
+  delete_users_by_pk(id: Int!): users
+
+  # insert data into the table: "activity_logins"
+  insert_activity_logins(
+    # the rows to be inserted
+    objects: [activity_logins_insert_input!]!
+
+    # on conflict condition
+    on_conflict: activity_logins_on_conflict
+  ): activity_logins_mutation_response
+
+  # insert a single row into the table: "activity_logins"
+  insert_activity_logins_one(
+    # the row to be inserted
+    object: activity_logins_insert_input!
+
+    # on conflict condition
+    on_conflict: activity_logins_on_conflict
+  ): activity_logins
+
+  # insert data into the table: "courses"
+  insert_courses(
+    # the rows to be inserted
+    objects: [courses_insert_input!]!
+
+    # on conflict condition
+    on_conflict: courses_on_conflict
+  ): courses_mutation_response
+
+  # insert a single row into the table: "courses"
+  insert_courses_one(
+    # the row to be inserted
+    object: courses_insert_input!
+
+    # on conflict condition
+    on_conflict: courses_on_conflict
+  ): courses
+
+  # insert data into the table: "pages"
+  insert_pages(
+    # the rows to be inserted
+    objects: [pages_insert_input!]!
+
+    # on conflict condition
+    on_conflict: pages_on_conflict
+  ): pages_mutation_response
+
+  # insert a single row into the table: "pages"
+  insert_pages_one(
+    # the row to be inserted
+    object: pages_insert_input!
+
+    # on conflict condition
+    on_conflict: pages_on_conflict
+  ): pages
+
+  # insert data into the table: "posts"
+  insert_posts(
+    # the rows to be inserted
+    objects: [posts_insert_input!]!
+
+    # on conflict condition
+    on_conflict: posts_on_conflict
+  ): posts_mutation_response
+
+  # insert a single row into the table: "posts"
+  insert_posts_one(
+    # the row to be inserted
+    object: posts_insert_input!
+
+    # on conflict condition
+    on_conflict: posts_on_conflict
+  ): posts
+
+  # insert data into the table: "profiles"
+  insert_profiles(
+    # the rows to be inserted
+    objects: [profiles_insert_input!]!
+
+    # on conflict condition
+    on_conflict: profiles_on_conflict
+  ): profiles_mutation_response
+
+  # insert a single row into the table: "profiles"
+  insert_profiles_one(
+    # the row to be inserted
+    object: profiles_insert_input!
+
+    # on conflict condition
+    on_conflict: profiles_on_conflict
+  ): profiles
+
+  # insert data into the table: "roles"
+  insert_roles(
+    # the rows to be inserted
+    objects: [roles_insert_input!]!
+
+    # on conflict condition
+    on_conflict: roles_on_conflict
+  ): roles_mutation_response
+
+  # insert a single row into the table: "roles"
+  insert_roles_one(
+    # the row to be inserted
+    object: roles_insert_input!
+
+    # on conflict condition
+    on_conflict: roles_on_conflict
+  ): roles
+
+  # insert data into the table: "tags"
+  insert_tags(
+    # the rows to be inserted
+    objects: [tags_insert_input!]!
+
+    # on conflict condition
+    on_conflict: tags_on_conflict
+  ): tags_mutation_response
+
+  # insert a single row into the table: "tags"
+  insert_tags_one(
+    # the row to be inserted
+    object: tags_insert_input!
+
+    # on conflict condition
+    on_conflict: tags_on_conflict
+  ): tags
+
+  # insert data into the table: "topics"
+  insert_topics(
+    # the rows to be inserted
+    objects: [topics_insert_input!]!
+
+    # on conflict condition
+    on_conflict: topics_on_conflict
+  ): topics_mutation_response
+
+  # insert a single row into the table: "topics"
+  insert_topics_one(
+    # the row to be inserted
+    object: topics_insert_input!
+
+    # on conflict condition
+    on_conflict: topics_on_conflict
+  ): topics
+
+  # insert data into the table: "users"
+  insert_users(
+    # the rows to be inserted
+    objects: [users_insert_input!]!
+
+    # on conflict condition
+    on_conflict: users_on_conflict
+  ): users_mutation_response
+
+  # insert a single row into the table: "users"
+  insert_users_one(
+    # the row to be inserted
+    object: users_insert_input!
+
+    # on conflict condition
+    on_conflict: users_on_conflict
+  ): users
+
+  # update data of the table: "activity_logins"
+  update_activity_logins(
+    # increments the numeric columns with given value of the filtered values
+    _inc: activity_logins_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: activity_logins_set_input
+
+    # filter the rows which have to be updated
+    where: activity_logins_bool_exp!
+  ): activity_logins_mutation_response
+
+  # update single row of the table: "activity_logins"
+  update_activity_logins_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: activity_logins_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: activity_logins_set_input
+    pk_columns: activity_logins_pk_columns_input!
+  ): activity_logins
+
+  # update data of the table: "courses"
+  update_courses(
+    # increments the numeric columns with given value of the filtered values
+    _inc: courses_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: courses_set_input
+
+    # filter the rows which have to be updated
+    where: courses_bool_exp!
+  ): courses_mutation_response
+
+  # update single row of the table: "courses"
+  update_courses_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: courses_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: courses_set_input
+    pk_columns: courses_pk_columns_input!
+  ): courses
+
+  # update data of the table: "pages"
+  update_pages(
+    # increments the numeric columns with given value of the filtered values
+    _inc: pages_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: pages_set_input
+
+    # filter the rows which have to be updated
+    where: pages_bool_exp!
+  ): pages_mutation_response
+
+  # update single row of the table: "pages"
+  update_pages_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: pages_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: pages_set_input
+    pk_columns: pages_pk_columns_input!
+  ): pages
+
+  # update data of the table: "posts"
+  update_posts(
+    # increments the numeric columns with given value of the filtered values
+    _inc: posts_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: posts_set_input
+
+    # filter the rows which have to be updated
+    where: posts_bool_exp!
+  ): posts_mutation_response
+
+  # update single row of the table: "posts"
+  update_posts_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: posts_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: posts_set_input
+    pk_columns: posts_pk_columns_input!
+  ): posts
+
+  # update data of the table: "profiles"
+  update_profiles(
+    # increments the numeric columns with given value of the filtered values
+    _inc: profiles_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: profiles_set_input
+
+    # filter the rows which have to be updated
+    where: profiles_bool_exp!
+  ): profiles_mutation_response
+
+  # update single row of the table: "profiles"
+  update_profiles_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: profiles_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: profiles_set_input
+    pk_columns: profiles_pk_columns_input!
+  ): profiles
+
+  # update data of the table: "roles"
+  update_roles(
+    # increments the numeric columns with given value of the filtered values
+    _inc: roles_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: roles_set_input
+
+    # filter the rows which have to be updated
+    where: roles_bool_exp!
+  ): roles_mutation_response
+
+  # update single row of the table: "roles"
+  update_roles_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: roles_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: roles_set_input
+    pk_columns: roles_pk_columns_input!
+  ): roles
+
+  # update data of the table: "tags"
+  update_tags(
+    # increments the numeric columns with given value of the filtered values
+    _inc: tags_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: tags_set_input
+
+    # filter the rows which have to be updated
+    where: tags_bool_exp!
+  ): tags_mutation_response
+
+  # update single row of the table: "tags"
+  update_tags_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: tags_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: tags_set_input
+    pk_columns: tags_pk_columns_input!
+  ): tags
+
+  # update data of the table: "topics"
+  update_topics(
+    # increments the numeric columns with given value of the filtered values
+    _inc: topics_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: topics_set_input
+
+    # filter the rows which have to be updated
+    where: topics_bool_exp!
+  ): topics_mutation_response
+
+  # update single row of the table: "topics"
+  update_topics_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: topics_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: topics_set_input
+    pk_columns: topics_pk_columns_input!
+  ): topics
+
+  # update data of the table: "users"
+  update_users(
+    # increments the numeric columns with given value of the filtered values
+    _inc: users_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: users_set_input
+
+    # filter the rows which have to be updated
+    where: users_bool_exp!
+  ): users_mutation_response
+
+  # update single row of the table: "users"
+  update_users_by_pk(
+    # increments the numeric columns with given value of the filtered values
+    _inc: users_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: users_set_input
+    pk_columns: users_pk_columns_input!
+  ): users
+}
+
+scalar numeric
+
+# Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'.
+input numeric_comparison_exp {
+  _eq: numeric
+  _gt: numeric
+  _gte: numeric
+  _in: [numeric!]
+  _is_null: Boolean
+  _lt: numeric
+  _lte: numeric
+  _neq: numeric
+  _nin: [numeric!]
+}
+
+# column ordering options
+enum order_by {
+  # in ascending order, nulls last
+  asc
+
+  # in ascending order, nulls first
+  asc_nulls_first
+
+  # in ascending order, nulls last
+  asc_nulls_last
+
+  # in descending order, nulls first
+  desc
+
+  # in descending order, nulls first
+  desc_nulls_first
+
+  # in descending order, nulls last
+  desc_nulls_last
+}
+
+# columns and relationships of "pages"
+type pages {
+  body: String!
+  createdAt: timestamptz!
+  createdBy: Int!
+  id: Int!
+  slug: String!
+  status: String!
+  title: String!
+  updatedAt: timestamptz!
+  updatedBy: Int!
+
+  # An object relationship
+  user: users!
+
+  # An object relationship
+  userByUpdatedById: users!
+}
+
+# aggregated selection of "pages"
+type pages_aggregate {
+  aggregate: pages_aggregate_fields
+  nodes: [pages!]!
+}
+
+# aggregate fields of "pages"
+type pages_aggregate_fields {
+  avg: pages_avg_fields
+  count(columns: [pages_select_column!], distinct: Boolean): Int!
+  max: pages_max_fields
+  min: pages_min_fields
+  stddev: pages_stddev_fields
+  stddev_pop: pages_stddev_pop_fields
+  stddev_samp: pages_stddev_samp_fields
+  sum: pages_sum_fields
+  var_pop: pages_var_pop_fields
+  var_samp: pages_var_samp_fields
+  variance: pages_variance_fields
+}
+
+# order by aggregate values of table "pages"
+input pages_aggregate_order_by {
+  avg: pages_avg_order_by
+  count: order_by
+  max: pages_max_order_by
+  min: pages_min_order_by
+  stddev: pages_stddev_order_by
+  stddev_pop: pages_stddev_pop_order_by
+  stddev_samp: pages_stddev_samp_order_by
+  sum: pages_sum_order_by
+  var_pop: pages_var_pop_order_by
+  var_samp: pages_var_samp_order_by
+  variance: pages_variance_order_by
+}
+
+# input type for inserting array relation for remote table "pages"
+input pages_arr_rel_insert_input {
+  data: [pages_insert_input!]!
+
+  # on conflict condition
+  on_conflict: pages_on_conflict
+}
+
+# aggregate avg on columns
+type pages_avg_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by avg() on columns of table "pages"
+input pages_avg_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# Boolean expression to filter rows from the table "pages". All fields are combined with a logical 'AND'.
+input pages_bool_exp {
+  _and: [pages_bool_exp!]
+  _not: pages_bool_exp
+  _or: [pages_bool_exp!]
+  body: String_comparison_exp
+  createdAt: timestamptz_comparison_exp
+  createdBy: Int_comparison_exp
+  id: Int_comparison_exp
+  slug: String_comparison_exp
+  status: String_comparison_exp
+  title: String_comparison_exp
+  updatedAt: timestamptz_comparison_exp
+  updatedBy: Int_comparison_exp
+  user: users_bool_exp
+  userByUpdatedById: users_bool_exp
+}
+
+# unique or primary key constraints on table "pages"
+enum pages_constraint {
+  # unique or primary key constraint
+  pages_pkey
+
+  # unique or primary key constraint
+  pages_slug_key
+
+  # unique or primary key constraint
+  pages_title_key
+}
+
+# input type for incrementing numeric columns in table "pages"
+input pages_inc_input {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# input type for inserting data into table "pages"
+input pages_insert_input {
+  body: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+  user: users_obj_rel_insert_input
+  userByUpdatedById: users_obj_rel_insert_input
+}
+
+# aggregate max on columns
+type pages_max_fields {
+  body: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by max() on columns of table "pages"
+input pages_max_order_by {
+  body: order_by
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  status: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# aggregate min on columns
+type pages_min_fields {
+  body: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by min() on columns of table "pages"
+input pages_min_order_by {
+  body: order_by
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  status: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# response of any mutation on the table "pages"
+type pages_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [pages!]!
+}
+
+# on conflict condition type for table "pages"
+input pages_on_conflict {
+  constraint: pages_constraint!
+  update_columns: [pages_update_column!]! = []
+  where: pages_bool_exp
+}
+
+# Ordering options when selecting data from "pages".
+input pages_order_by {
+  body: order_by
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  status: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  user: users_order_by
+  userByUpdatedById: users_order_by
+}
+
+# primary key columns input for table: pages
+input pages_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "pages"
+enum pages_select_column {
+  # column name
+  body
+
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  slug
+
+  # column name
+  status
+
+  # column name
+  title
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# input type for updating data in table "pages"
+input pages_set_input {
+  body: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# aggregate stddev on columns
+type pages_stddev_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev() on columns of table "pages"
+input pages_stddev_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_pop on columns
+type pages_stddev_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_pop() on columns of table "pages"
+input pages_stddev_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_samp on columns
+type pages_stddev_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_samp() on columns of table "pages"
+input pages_stddev_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate sum on columns
+type pages_sum_fields {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# order by sum() on columns of table "pages"
+input pages_sum_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# update columns of table "pages"
+enum pages_update_column {
+  # column name
+  body
+
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  slug
+
+  # column name
+  status
+
+  # column name
+  title
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# aggregate var_pop on columns
+type pages_var_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_pop() on columns of table "pages"
+input pages_var_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate var_samp on columns
+type pages_var_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_samp() on columns of table "pages"
+input pages_var_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate variance on columns
+type pages_variance_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by variance() on columns of table "pages"
+input pages_variance_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# columns and relationships of "posts"
+type posts {
+  content: String!
+  createdAt: timestamptz!
+  createdBy: Int!
+  id: Int!
+  slug: String!
+  status: String!
+  summary: String!
+  tagIds(
+    # JSON select path
+    path: String
+  ): json!
+  title: String!
+  topicIds(
+    # JSON select path
+    path: String
+  ): json!
+  updatedAt: timestamptz!
+  updatedBy: Int!
+
+  # An object relationship
+  userByCreatedById: users!
+
+  # An object relationship
+  userByUpdatedById: users!
+}
+
+# aggregated selection of "posts"
+type posts_aggregate {
+  aggregate: posts_aggregate_fields
+  nodes: [posts!]!
+}
+
+# aggregate fields of "posts"
+type posts_aggregate_fields {
+  avg: posts_avg_fields
+  count(columns: [posts_select_column!], distinct: Boolean): Int!
+  max: posts_max_fields
+  min: posts_min_fields
+  stddev: posts_stddev_fields
+  stddev_pop: posts_stddev_pop_fields
+  stddev_samp: posts_stddev_samp_fields
+  sum: posts_sum_fields
+  var_pop: posts_var_pop_fields
+  var_samp: posts_var_samp_fields
+  variance: posts_variance_fields
+}
+
+# order by aggregate values of table "posts"
+input posts_aggregate_order_by {
+  avg: posts_avg_order_by
+  count: order_by
+  max: posts_max_order_by
+  min: posts_min_order_by
+  stddev: posts_stddev_order_by
+  stddev_pop: posts_stddev_pop_order_by
+  stddev_samp: posts_stddev_samp_order_by
+  sum: posts_sum_order_by
+  var_pop: posts_var_pop_order_by
+  var_samp: posts_var_samp_order_by
+  variance: posts_variance_order_by
+}
+
+# input type for inserting array relation for remote table "posts"
+input posts_arr_rel_insert_input {
+  data: [posts_insert_input!]!
+
+  # on conflict condition
+  on_conflict: posts_on_conflict
+}
+
+# aggregate avg on columns
+type posts_avg_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by avg() on columns of table "posts"
+input posts_avg_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# Boolean expression to filter rows from the table "posts". All fields are combined with a logical 'AND'.
+input posts_bool_exp {
+  _and: [posts_bool_exp!]
+  _not: posts_bool_exp
+  _or: [posts_bool_exp!]
+  content: String_comparison_exp
+  createdAt: timestamptz_comparison_exp
+  createdBy: Int_comparison_exp
+  id: Int_comparison_exp
+  slug: String_comparison_exp
+  status: String_comparison_exp
+  summary: String_comparison_exp
+  tagIds: json_comparison_exp
+  title: String_comparison_exp
+  topicIds: json_comparison_exp
+  updatedAt: timestamptz_comparison_exp
+  updatedBy: Int_comparison_exp
+  userByCreatedById: users_bool_exp
+  userByUpdatedById: users_bool_exp
+}
+
+# unique or primary key constraints on table "posts"
+enum posts_constraint {
+  # unique or primary key constraint
+  posts_pkey
+
+  # unique or primary key constraint
+  posts_slug_key
+
+  # unique or primary key constraint
+  posts_title_key
+}
+
+# input type for incrementing numeric columns in table "posts"
+input posts_inc_input {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# input type for inserting data into table "posts"
+input posts_insert_input {
+  content: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  summary: String
+  tagIds: json
+  title: String
+  topicIds: json
+  updatedAt: timestamptz
+  updatedBy: Int
+  userByCreatedById: users_obj_rel_insert_input
+  userByUpdatedById: users_obj_rel_insert_input
+}
+
+# aggregate max on columns
+type posts_max_fields {
+  content: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  summary: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by max() on columns of table "posts"
+input posts_max_order_by {
+  content: order_by
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  status: order_by
+  summary: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# aggregate min on columns
+type posts_min_fields {
+  content: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  summary: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by min() on columns of table "posts"
+input posts_min_order_by {
+  content: order_by
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  status: order_by
+  summary: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# response of any mutation on the table "posts"
+type posts_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [posts!]!
+}
+
+# on conflict condition type for table "posts"
+input posts_on_conflict {
+  constraint: posts_constraint!
+  update_columns: [posts_update_column!]! = []
+  where: posts_bool_exp
+}
+
+# Ordering options when selecting data from "posts".
+input posts_order_by {
+  content: order_by
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  status: order_by
+  summary: order_by
+  tagIds: order_by
+  title: order_by
+  topicIds: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  userByCreatedById: users_order_by
+  userByUpdatedById: users_order_by
+}
+
+# primary key columns input for table: posts
+input posts_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "posts"
+enum posts_select_column {
+  # column name
+  content
+
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  slug
+
+  # column name
+  status
+
+  # column name
+  summary
+
+  # column name
+  tagIds
+
+  # column name
+  title
+
+  # column name
+  topicIds
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# input type for updating data in table "posts"
+input posts_set_input {
+  content: String
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  status: String
+  summary: String
+  tagIds: json
+  title: String
+  topicIds: json
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# aggregate stddev on columns
+type posts_stddev_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev() on columns of table "posts"
+input posts_stddev_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_pop on columns
+type posts_stddev_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_pop() on columns of table "posts"
+input posts_stddev_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_samp on columns
+type posts_stddev_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_samp() on columns of table "posts"
+input posts_stddev_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate sum on columns
+type posts_sum_fields {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# order by sum() on columns of table "posts"
+input posts_sum_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# update columns of table "posts"
+enum posts_update_column {
+  # column name
+  content
+
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  slug
+
+  # column name
+  status
+
+  # column name
+  summary
+
+  # column name
+  tagIds
+
+  # column name
+  title
+
+  # column name
+  topicIds
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# aggregate var_pop on columns
+type posts_var_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_pop() on columns of table "posts"
+input posts_var_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate var_samp on columns
+type posts_var_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_samp() on columns of table "posts"
+input posts_var_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate variance on columns
+type posts_variance_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by variance() on columns of table "posts"
+input posts_variance_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# columns and relationships of "profiles"
+type profiles {
+  avatarUrl: String
+  biography: String
+  id: Int!
+  links(
+    # JSON select path
+    path: String
+  ): json
+  location: String
+  phone: String
+  phoneVerified: Boolean
+  public: Boolean!
+  slug: String!
+
+  # An object relationship
+  user: users!
+  userId: Int!
+}
+
+# aggregated selection of "profiles"
+type profiles_aggregate {
+  aggregate: profiles_aggregate_fields
+  nodes: [profiles!]!
+}
+
+# aggregate fields of "profiles"
+type profiles_aggregate_fields {
+  avg: profiles_avg_fields
+  count(columns: [profiles_select_column!], distinct: Boolean): Int!
+  max: profiles_max_fields
+  min: profiles_min_fields
+  stddev: profiles_stddev_fields
+  stddev_pop: profiles_stddev_pop_fields
+  stddev_samp: profiles_stddev_samp_fields
+  sum: profiles_sum_fields
+  var_pop: profiles_var_pop_fields
+  var_samp: profiles_var_samp_fields
+  variance: profiles_variance_fields
+}
+
+# aggregate avg on columns
+type profiles_avg_fields {
+  id: Float
+  userId: Float
+}
+
+# Boolean expression to filter rows from the table "profiles". All fields are combined with a logical 'AND'.
+input profiles_bool_exp {
+  _and: [profiles_bool_exp!]
+  _not: profiles_bool_exp
+  _or: [profiles_bool_exp!]
+  avatarUrl: String_comparison_exp
+  biography: String_comparison_exp
+  id: Int_comparison_exp
+  links: json_comparison_exp
+  location: String_comparison_exp
+  phone: String_comparison_exp
+  phoneVerified: Boolean_comparison_exp
+  public: Boolean_comparison_exp
+  slug: String_comparison_exp
+  user: users_bool_exp
+  userId: Int_comparison_exp
+}
+
+# unique or primary key constraints on table "profiles"
+enum profiles_constraint {
+  # unique or primary key constraint
+  user_meta_pkey
+
+  # unique or primary key constraint
+  user_meta_user_Id_key
+
+  # unique or primary key constraint
+  user_profiles_phone_number_key
+
+  # unique or primary key constraint
+  user_profiles_slug_key
+}
+
+# input type for incrementing numeric columns in table "profiles"
+input profiles_inc_input {
+  id: Int
+  userId: Int
+}
+
+# input type for inserting data into table "profiles"
+input profiles_insert_input {
+  avatarUrl: String
+  biography: String
+  id: Int
+  links: json
+  location: String
+  phone: String
+  phoneVerified: Boolean
+  public: Boolean
+  slug: String
+  user: users_obj_rel_insert_input
+  userId: Int
+}
+
+# aggregate max on columns
+type profiles_max_fields {
+  avatarUrl: String
+  biography: String
+  id: Int
+  location: String
+  phone: String
+  slug: String
+  userId: Int
+}
+
+# aggregate min on columns
+type profiles_min_fields {
+  avatarUrl: String
+  biography: String
+  id: Int
+  location: String
+  phone: String
+  slug: String
+  userId: Int
+}
+
+# response of any mutation on the table "profiles"
+type profiles_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [profiles!]!
+}
+
+# input type for inserting object relation for remote table "profiles"
+input profiles_obj_rel_insert_input {
+  data: profiles_insert_input!
+
+  # on conflict condition
+  on_conflict: profiles_on_conflict
+}
+
+# on conflict condition type for table "profiles"
+input profiles_on_conflict {
+  constraint: profiles_constraint!
+  update_columns: [profiles_update_column!]! = []
+  where: profiles_bool_exp
+}
+
+# Ordering options when selecting data from "profiles".
+input profiles_order_by {
+  avatarUrl: order_by
+  biography: order_by
+  id: order_by
+  links: order_by
+  location: order_by
+  phone: order_by
+  phoneVerified: order_by
+  public: order_by
+  slug: order_by
+  user: users_order_by
+  userId: order_by
+}
+
+# primary key columns input for table: profiles
+input profiles_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "profiles"
+enum profiles_select_column {
+  # column name
+  avatarUrl
+
+  # column name
+  biography
+
+  # column name
+  id
+
+  # column name
+  links
+
+  # column name
+  location
+
+  # column name
+  phone
+
+  # column name
+  phoneVerified
+
+  # column name
+  public
+
+  # column name
+  slug
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "profiles"
+input profiles_set_input {
+  avatarUrl: String
+  biography: String
+  id: Int
+  links: json
+  location: String
+  phone: String
+  phoneVerified: Boolean
+  public: Boolean
+  slug: String
+  userId: Int
+}
+
+# aggregate stddev on columns
+type profiles_stddev_fields {
+  id: Float
+  userId: Float
+}
+
+# aggregate stddev_pop on columns
+type profiles_stddev_pop_fields {
+  id: Float
+  userId: Float
+}
+
+# aggregate stddev_samp on columns
+type profiles_stddev_samp_fields {
+  id: Float
+  userId: Float
+}
+
+# aggregate sum on columns
+type profiles_sum_fields {
+  id: Int
+  userId: Int
+}
+
+# update columns of table "profiles"
+enum profiles_update_column {
+  # column name
+  avatarUrl
+
+  # column name
+  biography
+
+  # column name
+  id
+
+  # column name
+  links
+
+  # column name
+  location
+
+  # column name
+  phone
+
+  # column name
+  phoneVerified
+
+  # column name
+  public
+
+  # column name
+  slug
+
+  # column name
+  userId
+}
+
+# aggregate var_pop on columns
+type profiles_var_pop_fields {
+  id: Float
+  userId: Float
+}
+
+# aggregate var_samp on columns
+type profiles_var_samp_fields {
+  id: Float
+  userId: Float
+}
+
+# aggregate variance on columns
+type profiles_variance_fields {
+  id: Float
+  userId: Float
+}
+
+type query_root {
+  # fetch data from the table: "activity_logins"
+  activity_logins(
+    # distinct select on columns
+    distinct_on: [activity_logins_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [activity_logins_order_by!]
+
+    # filter the rows returned
+    where: activity_logins_bool_exp
+  ): [activity_logins!]!
+
+  # fetch aggregated fields from the table: "activity_logins"
+  activity_logins_aggregate(
+    # distinct select on columns
+    distinct_on: [activity_logins_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [activity_logins_order_by!]
+
+    # filter the rows returned
+    where: activity_logins_bool_exp
+  ): activity_logins_aggregate!
+
+  # fetch data from the table: "activity_logins" using primary key columns
+  activity_logins_by_pk(id: Int!): activity_logins
+
+  # An array relationship
+  courses(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): [courses!]!
+
+  # An aggregate relationship
+  courses_aggregate(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): courses_aggregate!
+
+  # fetch data from the table: "courses" using primary key columns
+  courses_by_pk(id: Int!): courses
+
+  # An array relationship
+  pages(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): [pages!]!
+
+  # An aggregate relationship
+  pages_aggregate(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): pages_aggregate!
+
+  # fetch data from the table: "pages" using primary key columns
+  pages_by_pk(id: Int!): pages
+
+  # An array relationship
+  posts(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): [posts!]!
+
+  # An aggregate relationship
+  posts_aggregate(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): posts_aggregate!
+
+  # fetch data from the table: "posts" using primary key columns
+  posts_by_pk(id: Int!): posts
+
+  # fetch data from the table: "profiles"
+  profiles(
+    # distinct select on columns
+    distinct_on: [profiles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [profiles_order_by!]
+
+    # filter the rows returned
+    where: profiles_bool_exp
+  ): [profiles!]!
+
+  # fetch aggregated fields from the table: "profiles"
+  profiles_aggregate(
+    # distinct select on columns
+    distinct_on: [profiles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [profiles_order_by!]
+
+    # filter the rows returned
+    where: profiles_bool_exp
+  ): profiles_aggregate!
+
+  # fetch data from the table: "profiles" using primary key columns
+  profiles_by_pk(id: Int!): profiles
+
+  # fetch data from the table: "roles"
+  roles(
+    # distinct select on columns
+    distinct_on: [roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [roles_order_by!]
+
+    # filter the rows returned
+    where: roles_bool_exp
+  ): [roles!]!
+
+  # fetch aggregated fields from the table: "roles"
+  roles_aggregate(
+    # distinct select on columns
+    distinct_on: [roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [roles_order_by!]
+
+    # filter the rows returned
+    where: roles_bool_exp
+  ): roles_aggregate!
+
+  # fetch data from the table: "roles" using primary key columns
+  roles_by_pk(id: Int!): roles
+
+  # fetch data from the table: "tags"
+  tags(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): [tags!]!
+
+  # An aggregate relationship
+  tags_aggregate(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): tags_aggregate!
+
+  # fetch data from the table: "tags" using primary key columns
+  tags_by_pk(id: Int!): tags
+
+  # An array relationship
+  topics(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): [topics!]!
+
+  # An aggregate relationship
+  topics_aggregate(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): topics_aggregate!
+
+  # fetch data from the table: "topics" using primary key columns
+  topics_by_pk(id: Int!): topics
+
+  # An array relationship
+  users(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # An aggregate relationship
+  users_aggregate(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): users_aggregate!
+
+  # fetch data from the table: "users" using primary key columns
+  users_by_pk(id: Int!): users
+}
+
+# columns and relationships of "roles"
+type roles {
+  description: String
+  id: Int!
+  name: String
+  type: String
+
+  # An array relationship
+  users(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # An aggregate relationship
+  users_aggregate(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): users_aggregate!
+}
+
+# aggregated selection of "roles"
+type roles_aggregate {
+  aggregate: roles_aggregate_fields
+  nodes: [roles!]!
+}
+
+# aggregate fields of "roles"
+type roles_aggregate_fields {
+  avg: roles_avg_fields
+  count(columns: [roles_select_column!], distinct: Boolean): Int!
+  max: roles_max_fields
+  min: roles_min_fields
+  stddev: roles_stddev_fields
+  stddev_pop: roles_stddev_pop_fields
+  stddev_samp: roles_stddev_samp_fields
+  sum: roles_sum_fields
+  var_pop: roles_var_pop_fields
+  var_samp: roles_var_samp_fields
+  variance: roles_variance_fields
+}
+
+# aggregate avg on columns
+type roles_avg_fields {
+  id: Float
+}
+
+# Boolean expression to filter rows from the table "roles". All fields are combined with a logical 'AND'.
+input roles_bool_exp {
+  _and: [roles_bool_exp!]
+  _not: roles_bool_exp
+  _or: [roles_bool_exp!]
+  description: String_comparison_exp
+  id: Int_comparison_exp
+  name: String_comparison_exp
+  type: String_comparison_exp
+  users: users_bool_exp
+}
+
+# unique or primary key constraints on table "roles"
+enum roles_constraint {
+  # unique or primary key constraint
+  roles_name_key
+
+  # unique or primary key constraint
+  roles_shortname_key
+
+  # unique or primary key constraint
+  user_types_pkey
+}
+
+# input type for incrementing numeric columns in table "roles"
+input roles_inc_input {
+  id: Int
+}
+
+# input type for inserting data into table "roles"
+input roles_insert_input {
+  description: String
+  id: Int
+  name: String
+  type: String
+  users: users_arr_rel_insert_input
+}
+
+# aggregate max on columns
+type roles_max_fields {
+  description: String
+  id: Int
+  name: String
+  type: String
+}
+
+# aggregate min on columns
+type roles_min_fields {
+  description: String
+  id: Int
+  name: String
+  type: String
+}
+
+# response of any mutation on the table "roles"
+type roles_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [roles!]!
+}
+
+# input type for inserting object relation for remote table "roles"
+input roles_obj_rel_insert_input {
+  data: roles_insert_input!
+
+  # on conflict condition
+  on_conflict: roles_on_conflict
+}
+
+# on conflict condition type for table "roles"
+input roles_on_conflict {
+  constraint: roles_constraint!
+  update_columns: [roles_update_column!]! = []
+  where: roles_bool_exp
+}
+
+# Ordering options when selecting data from "roles".
+input roles_order_by {
+  description: order_by
+  id: order_by
+  name: order_by
+  type: order_by
+  users_aggregate: users_aggregate_order_by
+}
+
+# primary key columns input for table: roles
+input roles_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "roles"
+enum roles_select_column {
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  type
+}
+
+# input type for updating data in table "roles"
+input roles_set_input {
+  description: String
+  id: Int
+  name: String
+  type: String
+}
+
+# aggregate stddev on columns
+type roles_stddev_fields {
+  id: Float
+}
+
+# aggregate stddev_pop on columns
+type roles_stddev_pop_fields {
+  id: Float
+}
+
+# aggregate stddev_samp on columns
+type roles_stddev_samp_fields {
+  id: Float
+}
+
+# aggregate sum on columns
+type roles_sum_fields {
+  id: Int
+}
+
+# update columns of table "roles"
+enum roles_update_column {
+  # column name
+  description
+
+  # column name
+  id
+
+  # column name
+  name
+
+  # column name
+  type
+}
+
+# aggregate var_pop on columns
+type roles_var_pop_fields {
+  id: Float
+}
+
+# aggregate var_samp on columns
+type roles_var_samp_fields {
+  id: Float
+}
+
+# aggregate variance on columns
+type roles_variance_fields {
+  id: Float
+}
+
+# Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'.
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+
+  # does the column match the given case-insensitive pattern
+  _ilike: String
+  _in: [String!]
+
+  # does the column match the given POSIX regular expression, case insensitive
+  _iregex: String
+  _is_null: Boolean
+
+  # does the column match the given pattern
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+
+  # does the column NOT match the given case-insensitive pattern
+  _nilike: String
+  _nin: [String!]
+
+  # does the column NOT match the given POSIX regular expression, case insensitive
+  _niregex: String
+
+  # does the column NOT match the given pattern
+  _nlike: String
+
+  # does the column NOT match the given POSIX regular expression, case sensitive
+  _nregex: String
+
+  # does the column NOT match the given SQL regular expression
+  _nsimilar: String
+
+  # does the column match the given POSIX regular expression, case sensitive
+  _regex: String
+
+  # does the column match the given SQL regular expression
+  _similar: String
+}
+
+type subscription_root {
+  # fetch data from the table: "activity_logins"
+  activity_logins(
+    # distinct select on columns
+    distinct_on: [activity_logins_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [activity_logins_order_by!]
+
+    # filter the rows returned
+    where: activity_logins_bool_exp
+  ): [activity_logins!]!
+
+  # fetch aggregated fields from the table: "activity_logins"
+  activity_logins_aggregate(
+    # distinct select on columns
+    distinct_on: [activity_logins_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [activity_logins_order_by!]
+
+    # filter the rows returned
+    where: activity_logins_bool_exp
+  ): activity_logins_aggregate!
+
+  # fetch data from the table: "activity_logins" using primary key columns
+  activity_logins_by_pk(id: Int!): activity_logins
+
+  # An array relationship
+  courses(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): [courses!]!
+
+  # An aggregate relationship
+  courses_aggregate(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): courses_aggregate!
+
+  # fetch data from the table: "courses" using primary key columns
+  courses_by_pk(id: Int!): courses
+
+  # An array relationship
+  pages(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): [pages!]!
+
+  # An aggregate relationship
+  pages_aggregate(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): pages_aggregate!
+
+  # fetch data from the table: "pages" using primary key columns
+  pages_by_pk(id: Int!): pages
+
+  # An array relationship
+  posts(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): [posts!]!
+
+  # An aggregate relationship
+  posts_aggregate(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): posts_aggregate!
+
+  # fetch data from the table: "posts" using primary key columns
+  posts_by_pk(id: Int!): posts
+
+  # fetch data from the table: "profiles"
+  profiles(
+    # distinct select on columns
+    distinct_on: [profiles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [profiles_order_by!]
+
+    # filter the rows returned
+    where: profiles_bool_exp
+  ): [profiles!]!
+
+  # fetch aggregated fields from the table: "profiles"
+  profiles_aggregate(
+    # distinct select on columns
+    distinct_on: [profiles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [profiles_order_by!]
+
+    # filter the rows returned
+    where: profiles_bool_exp
+  ): profiles_aggregate!
+
+  # fetch data from the table: "profiles" using primary key columns
+  profiles_by_pk(id: Int!): profiles
+
+  # fetch data from the table: "roles"
+  roles(
+    # distinct select on columns
+    distinct_on: [roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [roles_order_by!]
+
+    # filter the rows returned
+    where: roles_bool_exp
+  ): [roles!]!
+
+  # fetch aggregated fields from the table: "roles"
+  roles_aggregate(
+    # distinct select on columns
+    distinct_on: [roles_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [roles_order_by!]
+
+    # filter the rows returned
+    where: roles_bool_exp
+  ): roles_aggregate!
+
+  # fetch data from the table: "roles" using primary key columns
+  roles_by_pk(id: Int!): roles
+
+  # fetch data from the table: "tags"
+  tags(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): [tags!]!
+
+  # An aggregate relationship
+  tags_aggregate(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): tags_aggregate!
+
+  # fetch data from the table: "tags" using primary key columns
+  tags_by_pk(id: Int!): tags
+
+  # An array relationship
+  topics(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): [topics!]!
+
+  # An aggregate relationship
+  topics_aggregate(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): topics_aggregate!
+
+  # fetch data from the table: "topics" using primary key columns
+  topics_by_pk(id: Int!): topics
+
+  # An array relationship
+  users(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # An aggregate relationship
+  users_aggregate(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): users_aggregate!
+
+  # fetch data from the table: "users" using primary key columns
+  users_by_pk(id: Int!): users
+}
+
+# columns and relationships of "tags"
+type tags {
+  createdAt: timestamptz!
+  createdBy: Int!
+  id: Int!
+  slug: String!
+  title: String!
+  updatedAt: timestamptz!
+  updatedBy: Int!
+
+  # An object relationship
+  user: users!
+
+  # An object relationship
+  userByUpdatedById: users!
+}
+
+# aggregated selection of "tags"
+type tags_aggregate {
+  aggregate: tags_aggregate_fields
+  nodes: [tags!]!
+}
+
+# aggregate fields of "tags"
+type tags_aggregate_fields {
+  avg: tags_avg_fields
+  count(columns: [tags_select_column!], distinct: Boolean): Int!
+  max: tags_max_fields
+  min: tags_min_fields
+  stddev: tags_stddev_fields
+  stddev_pop: tags_stddev_pop_fields
+  stddev_samp: tags_stddev_samp_fields
+  sum: tags_sum_fields
+  var_pop: tags_var_pop_fields
+  var_samp: tags_var_samp_fields
+  variance: tags_variance_fields
+}
+
+# order by aggregate values of table "tags"
+input tags_aggregate_order_by {
+  avg: tags_avg_order_by
+  count: order_by
+  max: tags_max_order_by
+  min: tags_min_order_by
+  stddev: tags_stddev_order_by
+  stddev_pop: tags_stddev_pop_order_by
+  stddev_samp: tags_stddev_samp_order_by
+  sum: tags_sum_order_by
+  var_pop: tags_var_pop_order_by
+  var_samp: tags_var_samp_order_by
+  variance: tags_variance_order_by
+}
+
+# input type for inserting array relation for remote table "tags"
+input tags_arr_rel_insert_input {
+  data: [tags_insert_input!]!
+
+  # on conflict condition
+  on_conflict: tags_on_conflict
+}
+
+# aggregate avg on columns
+type tags_avg_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by avg() on columns of table "tags"
+input tags_avg_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# Boolean expression to filter rows from the table "tags". All fields are combined with a logical 'AND'.
+input tags_bool_exp {
+  _and: [tags_bool_exp!]
+  _not: tags_bool_exp
+  _or: [tags_bool_exp!]
+  createdAt: timestamptz_comparison_exp
+  createdBy: Int_comparison_exp
+  id: Int_comparison_exp
+  slug: String_comparison_exp
+  title: String_comparison_exp
+  updatedAt: timestamptz_comparison_exp
+  updatedBy: Int_comparison_exp
+  user: users_bool_exp
+  userByUpdatedById: users_bool_exp
+}
+
+# unique or primary key constraints on table "tags"
+enum tags_constraint {
+  # unique or primary key constraint
+  tags_pkey
+
+  # unique or primary key constraint
+  tags_slug_key
+
+  # unique or primary key constraint
+  tags_title_key
+}
+
+# input type for incrementing numeric columns in table "tags"
+input tags_inc_input {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# input type for inserting data into table "tags"
+input tags_insert_input {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+  user: users_obj_rel_insert_input
+  userByUpdatedById: users_obj_rel_insert_input
+}
+
+# aggregate max on columns
+type tags_max_fields {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by max() on columns of table "tags"
+input tags_max_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# aggregate min on columns
+type tags_min_fields {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by min() on columns of table "tags"
+input tags_min_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# response of any mutation on the table "tags"
+type tags_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [tags!]!
+}
+
+# on conflict condition type for table "tags"
+input tags_on_conflict {
+  constraint: tags_constraint!
+  update_columns: [tags_update_column!]! = []
+  where: tags_bool_exp
+}
+
+# Ordering options when selecting data from "tags".
+input tags_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  user: users_order_by
+  userByUpdatedById: users_order_by
+}
+
+# primary key columns input for table: tags
+input tags_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "tags"
+enum tags_select_column {
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  slug
+
+  # column name
+  title
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# input type for updating data in table "tags"
+input tags_set_input {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# aggregate stddev on columns
+type tags_stddev_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev() on columns of table "tags"
+input tags_stddev_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_pop on columns
+type tags_stddev_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_pop() on columns of table "tags"
+input tags_stddev_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_samp on columns
+type tags_stddev_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_samp() on columns of table "tags"
+input tags_stddev_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate sum on columns
+type tags_sum_fields {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# order by sum() on columns of table "tags"
+input tags_sum_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# update columns of table "tags"
+enum tags_update_column {
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  slug
+
+  # column name
+  title
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# aggregate var_pop on columns
+type tags_var_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_pop() on columns of table "tags"
+input tags_var_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate var_samp on columns
+type tags_var_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_samp() on columns of table "tags"
+input tags_var_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate variance on columns
+type tags_variance_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by variance() on columns of table "tags"
+input tags_variance_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+scalar timestamptz
+
+# Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'.
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+
+# columns and relationships of "topics"
+type topics {
+  createdAt: timestamptz!
+  createdBy: Int!
+  id: Int!
+  parentTopicIds(
+    # JSON select path
+    path: String
+  ): json
+  slug: String!
+  title: String!
+  updatedAt: timestamptz!
+  updatedBy: Int!
+
+  # An object relationship
+  user: users!
+
+  # An object relationship
+  userByUpdatedById: users!
+}
+
+# aggregated selection of "topics"
+type topics_aggregate {
+  aggregate: topics_aggregate_fields
+  nodes: [topics!]!
+}
+
+# aggregate fields of "topics"
+type topics_aggregate_fields {
+  avg: topics_avg_fields
+  count(columns: [topics_select_column!], distinct: Boolean): Int!
+  max: topics_max_fields
+  min: topics_min_fields
+  stddev: topics_stddev_fields
+  stddev_pop: topics_stddev_pop_fields
+  stddev_samp: topics_stddev_samp_fields
+  sum: topics_sum_fields
+  var_pop: topics_var_pop_fields
+  var_samp: topics_var_samp_fields
+  variance: topics_variance_fields
+}
+
+# order by aggregate values of table "topics"
+input topics_aggregate_order_by {
+  avg: topics_avg_order_by
+  count: order_by
+  max: topics_max_order_by
+  min: topics_min_order_by
+  stddev: topics_stddev_order_by
+  stddev_pop: topics_stddev_pop_order_by
+  stddev_samp: topics_stddev_samp_order_by
+  sum: topics_sum_order_by
+  var_pop: topics_var_pop_order_by
+  var_samp: topics_var_samp_order_by
+  variance: topics_variance_order_by
+}
+
+# input type for inserting array relation for remote table "topics"
+input topics_arr_rel_insert_input {
+  data: [topics_insert_input!]!
+
+  # on conflict condition
+  on_conflict: topics_on_conflict
+}
+
+# aggregate avg on columns
+type topics_avg_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by avg() on columns of table "topics"
+input topics_avg_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# Boolean expression to filter rows from the table "topics". All fields are combined with a logical 'AND'.
+input topics_bool_exp {
+  _and: [topics_bool_exp!]
+  _not: topics_bool_exp
+  _or: [topics_bool_exp!]
+  createdAt: timestamptz_comparison_exp
+  createdBy: Int_comparison_exp
+  id: Int_comparison_exp
+  parentTopicIds: json_comparison_exp
+  slug: String_comparison_exp
+  title: String_comparison_exp
+  updatedAt: timestamptz_comparison_exp
+  updatedBy: Int_comparison_exp
+  user: users_bool_exp
+  userByUpdatedById: users_bool_exp
+}
+
+# unique or primary key constraints on table "topics"
+enum topics_constraint {
+  # unique or primary key constraint
+  topics_pkey
+
+  # unique or primary key constraint
+  topics_slug_key
+
+  # unique or primary key constraint
+  topics_title_key
+}
+
+# input type for incrementing numeric columns in table "topics"
+input topics_inc_input {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# input type for inserting data into table "topics"
+input topics_insert_input {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  parentTopicIds: json
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+  user: users_obj_rel_insert_input
+  userByUpdatedById: users_obj_rel_insert_input
+}
+
+# aggregate max on columns
+type topics_max_fields {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by max() on columns of table "topics"
+input topics_max_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# aggregate min on columns
+type topics_min_fields {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# order by min() on columns of table "topics"
+input topics_min_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  slug: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+}
+
+# response of any mutation on the table "topics"
+type topics_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [topics!]!
+}
+
+# on conflict condition type for table "topics"
+input topics_on_conflict {
+  constraint: topics_constraint!
+  update_columns: [topics_update_column!]! = []
+  where: topics_bool_exp
+}
+
+# Ordering options when selecting data from "topics".
+input topics_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  id: order_by
+  parentTopicIds: order_by
+  slug: order_by
+  title: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  user: users_order_by
+  userByUpdatedById: users_order_by
+}
+
+# primary key columns input for table: topics
+input topics_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "topics"
+enum topics_select_column {
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  parentTopicIds
+
+  # column name
+  slug
+
+  # column name
+  title
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# input type for updating data in table "topics"
+input topics_set_input {
+  createdAt: timestamptz
+  createdBy: Int
+  id: Int
+  parentTopicIds: json
+  slug: String
+  title: String
+  updatedAt: timestamptz
+  updatedBy: Int
+}
+
+# aggregate stddev on columns
+type topics_stddev_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev() on columns of table "topics"
+input topics_stddev_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_pop on columns
+type topics_stddev_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_pop() on columns of table "topics"
+input topics_stddev_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_samp on columns
+type topics_stddev_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by stddev_samp() on columns of table "topics"
+input topics_stddev_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate sum on columns
+type topics_sum_fields {
+  createdBy: Int
+  id: Int
+  updatedBy: Int
+}
+
+# order by sum() on columns of table "topics"
+input topics_sum_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# update columns of table "topics"
+enum topics_update_column {
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  id
+
+  # column name
+  parentTopicIds
+
+  # column name
+  slug
+
+  # column name
+  title
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+}
+
+# aggregate var_pop on columns
+type topics_var_pop_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_pop() on columns of table "topics"
+input topics_var_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate var_samp on columns
+type topics_var_samp_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by var_samp() on columns of table "topics"
+input topics_var_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# aggregate variance on columns
+type topics_variance_fields {
+  createdBy: Float
+  id: Float
+  updatedBy: Float
+}
+
+# order by variance() on columns of table "topics"
+input topics_variance_order_by {
+  createdBy: order_by
+  id: order_by
+  updatedBy: order_by
+}
+
+# columns and relationships of "users"
+type users {
+  # An array relationship
+  courses(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): [courses!]!
+
+  # An array relationship
+  coursesByUpdatedById(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): [courses!]!
+
+  # An aggregate relationship
+  coursesByUpdatedById_aggregate(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): courses_aggregate!
+
+  # An aggregate relationship
+  courses_aggregate(
+    # distinct select on columns
+    distinct_on: [courses_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [courses_order_by!]
+
+    # filter the rows returned
+    where: courses_bool_exp
+  ): courses_aggregate!
+  createdAt: timestamptz!
+  createdBy: Int
+  email: String
+  firstName: String!
+  fullName: String
+  id: Int!
+  lastActive: timestamptz
+  lastName: String!
+
+  # An array relationship
+  logins(
+    # distinct select on columns
+    distinct_on: [activity_logins_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [activity_logins_order_by!]
+
+    # filter the rows returned
+    where: activity_logins_bool_exp
+  ): [activity_logins!]!
+
+  # An aggregate relationship
+  logins_aggregate(
+    # distinct select on columns
+    distinct_on: [activity_logins_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [activity_logins_order_by!]
+
+    # filter the rows returned
+    where: activity_logins_bool_exp
+  ): activity_logins_aggregate!
+
+  # An array relationship
+  pages(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): [pages!]!
+
+  # An array relationship
+  pagesByCreatedById(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): [pages!]!
+
+  # An aggregate relationship
+  pagesByCreatedById_aggregate(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): pages_aggregate!
+
+  # An aggregate relationship
+  pages_aggregate(
+    # distinct select on columns
+    distinct_on: [pages_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [pages_order_by!]
+
+    # filter the rows returned
+    where: pages_bool_exp
+  ): pages_aggregate!
+
+  # An array relationship
+  posts(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): [posts!]!
+
+  # An array relationship
+  postsByUpdatedById(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): [posts!]!
+
+  # An aggregate relationship
+  postsByUpdatedById_aggregate(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): posts_aggregate!
+
+  # An aggregate relationship
+  posts_aggregate(
+    # distinct select on columns
+    distinct_on: [posts_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [posts_order_by!]
+
+    # filter the rows returned
+    where: posts_bool_exp
+  ): posts_aggregate!
+
+  # An object relationship
+  profile: profiles
+  pronouns: String
+
+  # An object relationship
+  role: roles!
+  roleId: Int!
+  status: String!
+
+  # fetch data from the table: "tags"
+  tags(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): [tags!]!
+
+  # An array relationship
+  tagsByUpdatedById(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): [tags!]!
+
+  # An aggregate relationship
+  tagsByUpdatedById_aggregate(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): tags_aggregate!
+
+  # An aggregate relationship
+  tags_aggregate(
+    # distinct select on columns
+    distinct_on: [tags_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [tags_order_by!]
+
+    # filter the rows returned
+    where: tags_bool_exp
+  ): tags_aggregate!
+
+  # An array relationship
+  topics(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): [topics!]!
+
+  # An array relationship
+  topicsByUpdatedById(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): [topics!]!
+
+  # An aggregate relationship
+  topicsByUpdatedById_aggregate(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): topics_aggregate!
+
+  # An aggregate relationship
+  topics_aggregate(
+    # distinct select on columns
+    distinct_on: [topics_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [topics_order_by!]
+
+    # filter the rows returned
+    where: topics_bool_exp
+  ): topics_aggregate!
+  updatedAt: timestamptz!
+  updatedBy: Int
+
+  # An object relationship
+  user: users
+
+  # An object relationship
+  userByUpdatedById: users
+  username: String
+
+  # An array relationship
+  users(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # An array relationship
+  usersByUpdatedById(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): [users!]!
+
+  # An aggregate relationship
+  usersByUpdatedById_aggregate(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): users_aggregate!
+
+  # An aggregate relationship
+  users_aggregate(
+    # distinct select on columns
+    distinct_on: [users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [users_order_by!]
+
+    # filter the rows returned
+    where: users_bool_exp
+  ): users_aggregate!
+  verified: Boolean!
+}
+
+# aggregated selection of "users"
+type users_aggregate {
+  aggregate: users_aggregate_fields
+  nodes: [users!]!
+}
+
+# aggregate fields of "users"
+type users_aggregate_fields {
+  avg: users_avg_fields
+  count(columns: [users_select_column!], distinct: Boolean): Int!
+  max: users_max_fields
+  min: users_min_fields
+  stddev: users_stddev_fields
+  stddev_pop: users_stddev_pop_fields
+  stddev_samp: users_stddev_samp_fields
+  sum: users_sum_fields
+  var_pop: users_var_pop_fields
+  var_samp: users_var_samp_fields
+  variance: users_variance_fields
+}
+
+# order by aggregate values of table "users"
+input users_aggregate_order_by {
+  avg: users_avg_order_by
+  count: order_by
+  max: users_max_order_by
+  min: users_min_order_by
+  stddev: users_stddev_order_by
+  stddev_pop: users_stddev_pop_order_by
+  stddev_samp: users_stddev_samp_order_by
+  sum: users_sum_order_by
+  var_pop: users_var_pop_order_by
+  var_samp: users_var_samp_order_by
+  variance: users_variance_order_by
+}
+
+# input type for inserting array relation for remote table "users"
+input users_arr_rel_insert_input {
+  data: [users_insert_input!]!
+
+  # on conflict condition
+  on_conflict: users_on_conflict
+}
+
+# aggregate avg on columns
+type users_avg_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by avg() on columns of table "users"
+input users_avg_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'.
+input users_bool_exp {
+  _and: [users_bool_exp!]
+  _not: users_bool_exp
+  _or: [users_bool_exp!]
+  courses: courses_bool_exp
+  coursesByUpdatedById: courses_bool_exp
+  createdAt: timestamptz_comparison_exp
+  createdBy: Int_comparison_exp
+  email: String_comparison_exp
+  firstName: String_comparison_exp
+  fullName: String_comparison_exp
+  id: Int_comparison_exp
+  lastActive: timestamptz_comparison_exp
+  lastName: String_comparison_exp
+  logins: activity_logins_bool_exp
+  pages: pages_bool_exp
+  pagesByCreatedById: pages_bool_exp
+  posts: posts_bool_exp
+  postsByUpdatedById: posts_bool_exp
+  profile: profiles_bool_exp
+  pronouns: String_comparison_exp
+  role: roles_bool_exp
+  roleId: Int_comparison_exp
+  status: String_comparison_exp
+  tags: tags_bool_exp
+  tagsByUpdatedById: tags_bool_exp
+  topics: topics_bool_exp
+  topicsByUpdatedById: topics_bool_exp
+  updatedAt: timestamptz_comparison_exp
+  updatedBy: Int_comparison_exp
+  user: users_bool_exp
+  userByUpdatedById: users_bool_exp
+  username: String_comparison_exp
+  users: users_bool_exp
+  usersByUpdatedById: users_bool_exp
+  verified: Boolean_comparison_exp
+}
+
+# unique or primary key constraints on table "users"
+enum users_constraint {
+  # unique or primary key constraint
+  users_email_key
+
+  # unique or primary key constraint
+  users_pkey
+
+  # unique or primary key constraint
+  users_username_key
+}
+
+# input type for incrementing numeric columns in table "users"
+input users_inc_input {
+  createdBy: Int
+  id: Int
+  roleId: Int
+  updatedBy: Int
+}
+
+# input type for inserting data into table "users"
+input users_insert_input {
+  courses: courses_arr_rel_insert_input
+  coursesByUpdatedById: courses_arr_rel_insert_input
+  createdAt: timestamptz
+  createdBy: Int
+  email: String
+  firstName: String
+  fullName: String
+  id: Int
+  lastActive: timestamptz
+  lastName: String
+  logins: activity_logins_arr_rel_insert_input
+  pages: pages_arr_rel_insert_input
+  pagesByCreatedById: pages_arr_rel_insert_input
+  posts: posts_arr_rel_insert_input
+  postsByUpdatedById: posts_arr_rel_insert_input
+  profile: profiles_obj_rel_insert_input
+  pronouns: String
+  role: roles_obj_rel_insert_input
+  roleId: Int
+  status: String
+  tags: tags_arr_rel_insert_input
+  tagsByUpdatedById: tags_arr_rel_insert_input
+  topics: topics_arr_rel_insert_input
+  topicsByUpdatedById: topics_arr_rel_insert_input
+  updatedAt: timestamptz
+  updatedBy: Int
+  user: users_obj_rel_insert_input
+  userByUpdatedById: users_obj_rel_insert_input
+  username: String
+  users: users_arr_rel_insert_input
+  usersByUpdatedById: users_arr_rel_insert_input
+  verified: Boolean
+}
+
+# aggregate max on columns
+type users_max_fields {
+  createdAt: timestamptz
+  createdBy: Int
+  email: String
+  firstName: String
+  fullName: String
+  id: Int
+  lastActive: timestamptz
+  lastName: String
+  pronouns: String
+  roleId: Int
+  status: String
+  updatedAt: timestamptz
+  updatedBy: Int
+  username: String
+}
+
+# order by max() on columns of table "users"
+input users_max_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  email: order_by
+  firstName: order_by
+  fullName: order_by
+  id: order_by
+  lastActive: order_by
+  lastName: order_by
+  pronouns: order_by
+  roleId: order_by
+  status: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  username: order_by
+}
+
+# aggregate min on columns
+type users_min_fields {
+  createdAt: timestamptz
+  createdBy: Int
+  email: String
+  firstName: String
+  fullName: String
+  id: Int
+  lastActive: timestamptz
+  lastName: String
+  pronouns: String
+  roleId: Int
+  status: String
+  updatedAt: timestamptz
+  updatedBy: Int
+  username: String
+}
+
+# order by min() on columns of table "users"
+input users_min_order_by {
+  createdAt: order_by
+  createdBy: order_by
+  email: order_by
+  firstName: order_by
+  fullName: order_by
+  id: order_by
+  lastActive: order_by
+  lastName: order_by
+  pronouns: order_by
+  roleId: order_by
+  status: order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  username: order_by
+}
+
+# response of any mutation on the table "users"
+type users_mutation_response {
+  # number of rows affected by the mutation
+  affected_rows: Int!
+
+  # data from the rows affected by the mutation
+  returning: [users!]!
+}
+
+# input type for inserting object relation for remote table "users"
+input users_obj_rel_insert_input {
+  data: users_insert_input!
+
+  # on conflict condition
+  on_conflict: users_on_conflict
+}
+
+# on conflict condition type for table "users"
+input users_on_conflict {
+  constraint: users_constraint!
+  update_columns: [users_update_column!]! = []
+  where: users_bool_exp
+}
+
+# Ordering options when selecting data from "users".
+input users_order_by {
+  coursesByUpdatedById_aggregate: courses_aggregate_order_by
+  courses_aggregate: courses_aggregate_order_by
+  createdAt: order_by
+  createdBy: order_by
+  email: order_by
+  firstName: order_by
+  fullName: order_by
+  id: order_by
+  lastActive: order_by
+  lastName: order_by
+  logins_aggregate: activity_logins_aggregate_order_by
+  pagesByCreatedById_aggregate: pages_aggregate_order_by
+  pages_aggregate: pages_aggregate_order_by
+  postsByUpdatedById_aggregate: posts_aggregate_order_by
+  posts_aggregate: posts_aggregate_order_by
+  profile: profiles_order_by
+  pronouns: order_by
+  role: roles_order_by
+  roleId: order_by
+  status: order_by
+  tagsByUpdatedById_aggregate: tags_aggregate_order_by
+  tags_aggregate: tags_aggregate_order_by
+  topicsByUpdatedById_aggregate: topics_aggregate_order_by
+  topics_aggregate: topics_aggregate_order_by
+  updatedAt: order_by
+  updatedBy: order_by
+  user: users_order_by
+  userByUpdatedById: users_order_by
+  username: order_by
+  usersByUpdatedById_aggregate: users_aggregate_order_by
+  users_aggregate: users_aggregate_order_by
+  verified: order_by
+}
+
+# primary key columns input for table: users
+input users_pk_columns_input {
+  id: Int!
+}
+
+# select columns of table "users"
+enum users_select_column {
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  email
+
+  # column name
+  firstName
+
+  # column name
+  fullName
+
+  # column name
+  id
+
+  # column name
+  lastActive
+
+  # column name
+  lastName
+
+  # column name
+  pronouns
+
+  # column name
+  roleId
+
+  # column name
+  status
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+
+  # column name
+  username
+
+  # column name
+  verified
+}
+
+# input type for updating data in table "users"
+input users_set_input {
+  createdAt: timestamptz
+  createdBy: Int
+  email: String
+  firstName: String
+  fullName: String
+  id: Int
+  lastActive: timestamptz
+  lastName: String
+  pronouns: String
+  roleId: Int
+  status: String
+  updatedAt: timestamptz
+  updatedBy: Int
+  username: String
+  verified: Boolean
+}
+
+# aggregate stddev on columns
+type users_stddev_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by stddev() on columns of table "users"
+input users_stddev_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_pop on columns
+type users_stddev_pop_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by stddev_pop() on columns of table "users"
+input users_stddev_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# aggregate stddev_samp on columns
+type users_stddev_samp_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by stddev_samp() on columns of table "users"
+input users_stddev_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# aggregate sum on columns
+type users_sum_fields {
+  createdBy: Int
+  id: Int
+  roleId: Int
+  updatedBy: Int
+}
+
+# order by sum() on columns of table "users"
+input users_sum_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# update columns of table "users"
+enum users_update_column {
+  # column name
+  createdAt
+
+  # column name
+  createdBy
+
+  # column name
+  email
+
+  # column name
+  firstName
+
+  # column name
+  fullName
+
+  # column name
+  id
+
+  # column name
+  lastActive
+
+  # column name
+  lastName
+
+  # column name
+  pronouns
+
+  # column name
+  roleId
+
+  # column name
+  status
+
+  # column name
+  updatedAt
+
+  # column name
+  updatedBy
+
+  # column name
+  username
+
+  # column name
+  verified
+}
+
+# aggregate var_pop on columns
+type users_var_pop_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by var_pop() on columns of table "users"
+input users_var_pop_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# aggregate var_samp on columns
+type users_var_samp_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by var_samp() on columns of table "users"
+input users_var_samp_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+
+# aggregate variance on columns
+type users_variance_fields {
+  createdBy: Float
+  id: Float
+  roleId: Float
+  updatedBy: Float
+}
+
+# order by variance() on columns of table "users"
+input users_variance_order_by {
+  createdBy: order_by
+  id: order_by
+  roleId: order_by
+  updatedBy: order_by
+}
+

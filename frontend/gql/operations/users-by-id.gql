@@ -1,0 +1,7 @@
+query CandidateMatches($id: Int!) {
+  users_by_pk(id: $id) {
+    id
+    firstName
+    lastName
+  }
+}

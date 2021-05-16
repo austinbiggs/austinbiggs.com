@@ -1,0 +1,15 @@
+@import "variables";
+
+.link {
+  &:hover,
+  &.active {
+    color: $green;
+    transition: $transition;
+  }
+
+  color: $dark-gray;
+  font-family: $font-family;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: bold;
+}

@@ -1,0 +1,9 @@
+@import "variables";
+
+.table {
+  background-color: $white;
+  border-radius: 3px;
+  box-shadow: $shadow;
+  margin: 24px 0;
+  overflow: hidden;
+}

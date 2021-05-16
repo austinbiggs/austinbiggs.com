@@ -1,0 +1,10 @@
+@import "variables";
+
+.head {
+  background-color: $dark-gray;
+  border-bottom: 1px solid $dark-gray;
+  color: $light-gray;
+  display: flex;
+  font-size: $font-size-xxs;
+  font-weight: 600;
+}
