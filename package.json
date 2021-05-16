@@ -149,7 +149,7 @@
     ]
   },
   "main": "index.js",
-  "repository": "git@github.com:austinbiggs/austinbiggs.git",
+  "repository": "git@github.com:austinbiggs/austinbiggs.com.git",
   "author": "Austin Biggs <austintbiggs@gmail.com>",
   "license": "MIT"
 }
