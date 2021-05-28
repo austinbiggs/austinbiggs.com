@@ -933,10 +933,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/ubuntu@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/ubuntu/-/ubuntu-4.3.0.tgz#45de1af27874b8acc970078d26f572514d9d48eb"
-  integrity sha512-vEK01Kcl7oodfuymz6geG27XY1rftJ6S+TWm3o59vULjBO8KHLt3go3N5g6VYRmkXTgp0fWqDqRGtb5o4GNdMg==
+"@fontsource/ubuntu@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/ubuntu/-/ubuntu-4.4.0.tgz#026aeeafc0c874ec8c32a328704575ccc86c49d4"
+  integrity sha512-WAEldLHicqwv8NwzZv7ZI0K9tVxtlLtNnS2tIk5whyIgjFThCdF/OxAS5u9HLgE7SU9cN9EH7ALsOchGt/hodw==
 
 "@fortawesome/fontawesome-common-types@^0.2.32", "@fortawesome/fontawesome-common-types@^0.2.35":
   version "0.2.35"
