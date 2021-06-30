@@ -91,7 +91,7 @@
     "@graphql-codegen/near-operation-file-preset": "^1.18.0",
     "@graphql-codegen/typescript": "^1.22.0",
     "@graphql-codegen/typescript-apollo-client-helpers": "^1.1.5",
-    "@graphql-codegen/typescript-operations": "^1.17.16",
+    "@graphql-codegen/typescript-operations": "^1.18.3",
     "@graphql-codegen/typescript-react-apollo": "^2.2.4",
     "@types/classnames": "^2.3.1",
     "@types/node": "^15.0.2",
