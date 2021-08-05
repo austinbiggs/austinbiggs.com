@@ -3186,10 +3186,10 @@ body-parser@1.19.0:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
-bootswatch@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.0.0.tgz#da1c9b2ca697163975683824ffbaa425ee3d4f40"
-  integrity sha512-IXmloGK/UjGvs22+3sSht4zK2dXK8EWV9j6NzLp/7EoVwi0Rg3to1Y99tAi16h4uHtoE32ci08Hx9yhhoCKKYA==
+bootswatch@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.1.0.tgz#a9c521226aef55bba96b2854ef6fe39737b24f1a"
+  integrity sha512-HwQjahQSq0u+ydqY0fFyl/GsJIHhBvzjBA8D2XvMvIrHdqYfL1LdD5bnnaEDoJugMCYGud9PQSgq/XkuyFFPMg==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
