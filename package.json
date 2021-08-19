@@ -44,7 +44,7 @@
     "@editorjs/simple-image": "^1.4.1",
     "@editorjs/table": "^2.0.1",
     "@editorjs/warning": "^1.2.0",
-    "@fontsource/ubuntu": "^4.3.0",
+    "@fontsource/ubuntu": "^4.5.0",
     "@fortawesome/fontawesome-common-types": "^0.2.32",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
