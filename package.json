@@ -86,7 +86,7 @@
     "@editorjs/editorjs": "^2.21.0",
     "@editorjs/paragraph": "^2.8.0",
     "@graphql-codegen/add": "^3.0.0",
-    "@graphql-codegen/cli": "^1.21.4",
+    "@graphql-codegen/cli": "^2.1.1",
     "@graphql-codegen/introspection": "^2.1.0",
     "@graphql-codegen/near-operation-file-preset": "^2.1.1",
     "@graphql-codegen/typescript": "^1.22.0",
