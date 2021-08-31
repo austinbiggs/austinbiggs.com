@@ -65,7 +65,7 @@
     "change-case": "^4.1.2",
     "classnames": "^2.3.1",
     "eslint-plugin-no-loops": "^0.3.0",
-    "graphql": "^15.5.0",
+    "graphql": "^15.5.2",
     "graphql-tools": "^7.0.4",
     "lodash": "^4.17.21",
     "logrocket": "^1.1.0",
