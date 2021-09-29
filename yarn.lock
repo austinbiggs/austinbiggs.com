@@ -9,14 +9,14 @@
   dependencies:
     "@analytics/global-storage-utils" "^0.1.2"
 
-"@analytics/core@^0.10.13":
-  version "0.10.13"
-  resolved "https://registry.yarnpkg.com/@analytics/core/-/core-0.10.13.tgz#275e71d550f6e1a6f1349c497d935e737d733ba4"
-  integrity sha512-i8XH73jfPYq1e1SZYn/tbx4IEAllZl5oap3SeFC/zR17APujGggqpkP1H6mnwdyYO1RQGKxPbf5LufM5iYnoGg==
+"@analytics/core@^0.10.15":
+  version "0.10.15"
+  resolved "https://registry.yarnpkg.com/@analytics/core/-/core-0.10.15.tgz#1900c9679fe0bdca386ea787b74b5ad41194a486"
+  integrity sha512-ISZcFXMvPVTZlU84ZkAM7z80hwdf3r5xLH5809qiQwn55SVEesxfMdwvxJ8CnPLFpymDywNDj1y8KmyJJ7ugsg==
   dependencies:
     "@analytics/global-storage-utils" "^0.1.2"
     "@analytics/type-utils" "^0.3.1"
-    analytics-utils "^1.0.2"
+    analytics-utils "^1.0.3"
 
 "@analytics/global-storage-utils@^0.1.2":
   version "0.1.2"
@@ -2786,20 +2786,20 @@ analytics-node@^3.5.0:
     remove-trailing-slash "^0.1.0"
     uuid "^3.2.1"
 
-analytics-utils@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/analytics-utils/-/analytics-utils-1.0.2.tgz#dc27eefa5a5eab436d05d66324bdb1583d1657f4"
-  integrity sha512-zVehxpl3pSQH55YPnnLjE7IAIVA5ezDcHnm2pAndN1dohCb0NDpgigbY3RbhIZ5z9j2/InlpAqsSgk+NVWACVQ==
+analytics-utils@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/analytics-utils/-/analytics-utils-1.0.3.tgz#fcbf2f03720b6b1be12ea9fa7843e08c57a11ec5"
+  integrity sha512-zEKtwLa62kdI7+HQ4lsDorBKEI+PIdy1SAaIqLauIZgUISxfkuFLWwabdUkKMdxGPyrDyiuDVbZT9gZFMiicdg==
   dependencies:
     "@analytics/type-utils" "^0.3.1"
     dlv "^1.1.3"
 
-analytics@^0.7.13:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/analytics/-/analytics-0.7.13.tgz#18380630c2df450fb96011cd0f346d3268c73ea1"
-  integrity sha512-1WcUy0p3BbSDYXZxjH4hPlbqTf7+GYEheC+TCaCQCIQlFdPcEwzEvXfFPvmkSXY72EPg5jywHcOuLvf3KX52pg==
+analytics@^0.7.15:
+  version "0.7.15"
+  resolved "https://registry.yarnpkg.com/analytics/-/analytics-0.7.15.tgz#81a55bbae0a4856a64579f34ef49b942ff0dd0ef"
+  integrity sha512-4CNgfGUCgjfSTszAf9LsOgfZzkELXvHXJp/qQnK4nuGm7nq2kHh/3jOltsSTaWxzipzna6lT2qP823vAuttong==
   dependencies:
-    "@analytics/core" "^0.10.13"
+    "@analytics/core" "^0.10.15"
     "@analytics/storage-utils" "^0.2.12"
 
 anser@1.4.9:
