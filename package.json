@@ -68,7 +68,7 @@
     "graphql": "^15.5.0",
     "graphql-tools": "^7.0.4",
     "lodash": "^4.17.21",
-    "logrocket": "^1.1.0",
+    "logrocket": "^2.1.1",
     "logrocket-react": "^4.0.1",
     "next": "11.1.0",
     "ramda": "^0.27.1",
