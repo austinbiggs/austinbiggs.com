@@ -5561,10 +5561,10 @@ eslint-plugin-chai-friendly@^0.7.2:
   resolved "https://registry.yarnpkg.com/eslint-plugin-chai-friendly/-/eslint-plugin-chai-friendly-0.7.2.tgz#0ebfbb2c1244f5de2997f3963d155758234f2b0f"
   integrity sha512-LOIfGx5sZZ5FwM1shr2GlYAWV9Omdi+1/3byuVagvQNoGUuU0iHhp7AfjA1uR+4dJ4Isfb4+FwBJgQajIw9iAg==
 
-eslint-plugin-i18next@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-5.1.1.tgz#afc06d9ad5c2b5e481282c31d3833e0fa9cef6cc"
-  integrity sha512-qhJoeuOrRMVve5SA2/mVbYLL2nJJ4MTi8Y6nefRcOimrs86P/GZr1XXjKHSCEwcV5JL905//H6EO1AXTyUzzrg==
+eslint-plugin-i18next@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-5.1.2.tgz#322994c99ceddc365a888c4e5fcaf02abc43f1d1"
+  integrity sha512-YuJWaio8BE7eoWE2V3UnddwJhf3XNQ2tb7XAKZhbkeA+BWzm33ujOv6Ezm98Wjc8VCyT9NJvDyvs5/a9AG4QpQ==
   dependencies:
     requireindex "~1.1.0"
 
