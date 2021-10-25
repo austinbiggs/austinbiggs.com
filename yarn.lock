@@ -889,10 +889,10 @@
     pump "^3.0.0"
     stack-generator "^2.0.3"
 
-"@bugsnag/plugin-react@^7.9.2":
-  version "7.9.2"
-  resolved "https://registry.yarnpkg.com/@bugsnag/plugin-react/-/plugin-react-7.9.2.tgz#30c4980b588ef004edbdda7f83697018243cc85e"
-  integrity sha512-HAaFn/z7jbzX6AixC3CYGu/GalAeD9wCGCGiVG/9Oyzk0ioeO97WcaDMWTC9EtfHYOEirOpSLUIfMn9OCLZ0fQ==
+"@bugsnag/plugin-react@^7.13.2":
+  version "7.13.2"
+  resolved "https://registry.yarnpkg.com/@bugsnag/plugin-react/-/plugin-react-7.13.2.tgz#2676c9cb8d73b2455cc0293f8358990527a88555"
+  integrity sha512-k1dcJ230BdcmLYC7R+kydQvjXE+MwmlsTDBt8Kp+L4nTcKogCfYGb072h2EQX8Gh4e9QJa+Lhcf8kyDUCE3RtA==
 
 "@bugsnag/safe-json-stringify@^6.0.0":
   version "6.0.0"
