@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@editorjs/editorjs": "^2.21.0",
+    "@editorjs/editorjs": "^2.22.2",
     "@editorjs/paragraph": "^2.8.0",
     "@graphql-codegen/add": "^3.0.0",
     "@graphql-codegen/cli": "^2.2.1",
