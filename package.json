@@ -79,7 +79,7 @@
     "react-i18next": "^11.8.15",
     "react-use": "^17.3.1",
     "sass": "^1.43.3",
-    "serialize-javascript": "^5.0.1"
+    "serialize-javascript": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
