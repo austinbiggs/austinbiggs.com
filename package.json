@@ -66,7 +66,7 @@
     "classnames": "^2.3.1",
     "eslint-plugin-no-loops": "^0.3.0",
     "graphql": "^15.6.1",
-    "graphql-tools": "^7.0.4",
+    "graphql-tools": "^8.2.0",
     "lodash": "^4.17.21",
     "logrocket": "^2.1.1",
     "logrocket-react": "^4.0.1",
