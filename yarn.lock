@@ -30,10 +30,10 @@
   dependencies:
     "@analytics/global-storage-utils" "^0.1.2"
 
-"@analytics/segment@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@analytics/segment/-/segment-1.1.1.tgz#5fa17e5ff5a85d45dabf8f618b2e6df8640455ca"
-  integrity sha512-O9OKDruH/S5J8Y+koxE4nUYTGsf376diQ5fKyHbwKyaWecAGXb1f/ccZ5BABnV8XCTgbsEXWNSVp2WwCXFiF9w==
+"@analytics/segment@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@analytics/segment/-/segment-1.1.2.tgz#3b6af517d6ec2b91fd7c6841ab62ad32e47ec5a0"
+  integrity sha512-mM2YqAGpgoRCn+7RggxTzzrfza4HGOrcpXV0MxgA51P6KJ+6VCj23hDMPTU3hDk91v8n82EH6QEBkQo4jC+oww==
   dependencies:
     analytics-node "^3.5.0"
 
