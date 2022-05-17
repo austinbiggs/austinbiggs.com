@@ -82,7 +82,7 @@
     "serialize-javascript": "^6.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.17.12",
     "@editorjs/editorjs": "^2.22.2",
     "@editorjs/paragraph": "^2.8.0",
     "@graphql-codegen/add": "^3.0.0",
