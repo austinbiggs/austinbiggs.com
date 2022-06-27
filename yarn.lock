@@ -951,10 +951,10 @@
     codex-tooltip "^1.0.2"
     nanoid "^3.1.22"
 
-"@editorjs/embed@^2.4.6":
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/@editorjs/embed/-/embed-2.4.6.tgz#7db8bc84d90c947d1fff037c96973d587168692e"
-  integrity sha512-c/1TzBBMrU1hpPHRWXlVanBhgyoPZvE2A3qHt23rMVxJVvzu13Zozj0ZOO8pL1XGcubf+Yvalxu7AURn7X3jPw==
+"@editorjs/embed@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@editorjs/embed/-/embed-2.5.2.tgz#25ebdd35c70124af14512582914bd2bf70cc84b8"
+  integrity sha512-l+knGtiWwmAjasZARGhFJkQZU2A2kGvPN1orJAtNWLOj7r52IKxFQxHE2FfcYX0lTq15p4iUQAxaY1DwZJF+gw==
 
 "@editorjs/header@^2.6.1":
   version "2.6.1"
