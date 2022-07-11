@@ -87,7 +87,7 @@
     "@editorjs/paragraph": "^2.8.0",
     "@graphql-codegen/add": "^3.0.0",
     "@graphql-codegen/cli": "^2.2.1",
-    "@graphql-codegen/introspection": "^2.1.0",
+    "@graphql-codegen/introspection": "^2.2.0",
     "@graphql-codegen/near-operation-file-preset": "^2.1.6",
     "@graphql-codegen/typescript": "^2.2.4",
     "@graphql-codegen/typescript-apollo-client-helpers": "^2.1.6",
