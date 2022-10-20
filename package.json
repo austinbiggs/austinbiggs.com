@@ -116,7 +116,7 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-security": "^1.4.0",
-    "eslint-plugin-testing-library": "^5.0.0",
+    "eslint-plugin-testing-library": "^5.8.0",
     "faker": "^5.5.3",
     "graphqurl": "^1.0.1",
     "husky": "7",
