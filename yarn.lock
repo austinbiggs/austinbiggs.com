@@ -9394,10 +9394,10 @@ react-error-boundary@^3.1.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-hook-form@^7.19.4:
-  version "7.19.4"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.19.4.tgz#617e90761274aeb1fb513a9c1ee7e61b35bf3064"
-  integrity sha512-6fwDW+376ybViiTrNokKBpAJ75i+3ThZwWQWgzRoT+1pYHXzFmZDuTHyR5JJzHThbY3a2ao6sotHTm2QIaaeIA==
+react-hook-form@^7.39.5:
+  version "7.39.5"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.39.5.tgz#a4272b60288ef5e1bb42bbb6ba3b36d243ab2879"
+  integrity sha512-OE0HKyz5IPc6svN2wd+e+evidZrw4O4WZWAWYzQVZuHi+hYnHFSLnxOq0ddjbdmaLIsLHut/ab7j72y2QT3+KA==
 
 react-i18next@^11.12.0:
   version "11.12.0"
